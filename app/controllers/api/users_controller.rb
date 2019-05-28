@@ -1,4 +1,15 @@
-class Api::UsersController < ApplicationController 
+class Api::UsersController < ApplicationController \
+
+    def check_email
+        @user = User.find_by(:email)
+
+        if @user 
+            render json: ["Email already exists!"], status: 401
+        else 
+            render json: "api/users/show"
+        end
+    end
+
 
     def create 
         @user = User.new(user_params)

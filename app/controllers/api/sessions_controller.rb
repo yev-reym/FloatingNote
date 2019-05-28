@@ -1,8 +1,18 @@
 class Api::SessionsController < ApplicationController
 
+    def check_email
+        @user = User.find_by(:email)
+
+        if @user 
+            render json: "api/users/show"
+        else 
+            render json: ["Email not linked to any user!"], status: 401
+        end
+    end
+
     def create 
         @user = User.find_by_credentials(
-            params[:user][:username],
+            params[:user][:email],
             params[:user][:password]
             )
 

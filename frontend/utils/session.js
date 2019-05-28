@@ -10,6 +10,13 @@ export const signup = (user) => (
     })
 );
 
+export const checkLogin = (email) => (
+        $.ajax({
+         method: 'GET',
+         url: 'api/session/email_check'
+        })
+);
+
 export const login = (user) => (
     $.ajax({
         method: 'POST',
