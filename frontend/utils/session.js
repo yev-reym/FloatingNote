@@ -13,7 +13,10 @@ export const signup = (user) => (
 export const checkLogin = (email) => (
         $.ajax({
          method: 'GET',
-         url: 'api/session/email_check'
+         url: 'api/session/email_check',
+         data: {
+             email
+         }
         })
 );
 

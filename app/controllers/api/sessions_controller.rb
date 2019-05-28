@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
 
     def check_email
-        @user = User.find_by(:email)
+        @user = User.find_by(email: params[:user][:email])
 
         if @user 
             render json: "api/users/show"
