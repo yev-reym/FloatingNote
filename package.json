@@ -7,10 +7,15 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": ">= 8.4.0",
+    "npm": ">=6.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "everything": "npm install webpack webpack-cli redux-thunk redux-logger redux react-router-dom react-redux react-dom react lodash babel-loader @babel/preset-react @babel/preset-env @babel/core",
-    "start": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
