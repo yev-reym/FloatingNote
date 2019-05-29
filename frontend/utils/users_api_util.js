@@ -2,12 +2,12 @@
 
 
 
-export const checkEmail = (email) => (
+export const infoCheck = (info) => (
     $.ajax({
         method: 'GET',
-        url: 'api/users/email_check',
+        url: 'api/users/info_check',
         data: {
-            email
+            info
         }
     })
 );

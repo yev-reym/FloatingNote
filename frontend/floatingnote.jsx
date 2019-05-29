@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {login,logout} from './utils/session_api_util';
-import {signup,checkEmail} from './utils/users_api_util';
+import {signup,infoCheck} from './utils/users_api_util';
 import configureStore from './store/store';
 import Root from './components/Root';
 
@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.signup = signup;
     window.login = login;
     window.logout = logout;
-    window.checkEmail = checkEmail;
-
+    window.infoCheck = infoCheck;
+    window.store = store;
 
     //
 
-    ReactDOM.render(< Root store={store} />, root);
+    ReactDOM.render(<Root store={store}/>, root);
 });
