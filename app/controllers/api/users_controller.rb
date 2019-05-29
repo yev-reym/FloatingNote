@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController \
 
-    def check_email
+    def email_check
         @user = User.find_by(email: params[:email])
 
         if @user 
