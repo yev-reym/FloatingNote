@@ -37,8 +37,6 @@ body {
 .carousel{
     width: 100%;
     height: 100%;
-    // margin-right: -20px;
-    // margin-left: -20px;
     background-image: url('carousel_demo_image.png');
     float:left;
 }
@@ -46,3 +44,32 @@ body {
 .carousel-container{
 
 }
+
+.buttons{
+    display:flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    box-sizing: border-box;
+    background: green;
+    flex-wrap: nowrap;
+    align-items: center;  
+}
+
+
+.signin{
+    cursor: pointer;
+    margin: 6px;
+}
+
+.signup{
+    cursor: pointer;
+    margin: 6px;
+}
+
+
+
+
+
