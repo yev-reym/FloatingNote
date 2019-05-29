@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+    overflow-x: scroll;
+}
+body {
+    height: 100%
+}
+
+#root{
+    overflow-y: scroll;
+    background-color: #f2f2f2;
+    padding-bottom: 75px;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
+}
+
+.splash-app{
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.top-banner{
+ color: #fff;
+ position: relative;
+ border-top: 4px solid #f50;
+ background-color: #666;
+ height: 450px;
+ display: block;
+ width: 100%;
+ margin: 0 auto;
+}
+
+.carousel{
+    width: 100%;
+    height: 100%;
+    // margin-right: -20px;
+    // margin-left: -20px;
+    background-image: url('carousel_demo_image.png');
+    float:left;
+}
+
+.carousel-container{
+
+}
