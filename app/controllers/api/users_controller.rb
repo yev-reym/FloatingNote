@@ -1,12 +1,12 @@
 class Api::UsersController < ApplicationController \
 
     def check_email
-        @user = User.find_by(email: user_params[:email])
+        @user = User.find_by(email: params[:email])
 
         if @user 
-            render json: ["Email already exists!"], status: 401
+            render json: {email: params[:email], exists: true }
         else 
-            render json: "api/users/show"
+            render json: {email: params[:email], exists: false }
         end
     end
 
