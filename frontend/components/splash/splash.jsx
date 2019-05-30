@@ -10,23 +10,37 @@ class Splash extends React.Component {
     render(){
         return (
             <main className="splash-app">
+
                 <header className="top-banner">
-                    <div className="carousel">
-                        <div className="carousel-container">
-                        
-                        <div className="buttons">
 
-                        <button className="signin">Sign In</button>
+                    <figure className="carousel-top">
 
-                        <button class-name="signup">Create Account</button>
+                        <figure className="cloud-logo">
+                            <img src={window.logo} alt="SoundCloud Logo" className="cloud-logo"/>
+                        </figure>
+
+                       
+                        <div className="carousel-nav">
+
+                        <button className="buttons signin">Sign In</button>
+
+                        <button className="buttons signup">Create Account</button>
 
                         </div>
-                        
 
+                    </figure>
 
+                    <section className="carousel-information">
 
-                        </div>
-                    </div>
+                        <section className="carousel-mid">
+                            <h2>Discover more with SoundCloud Go+</h2>
+                            <p>SoundCloud Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</p> 
+                            <button className="buttons demo-button">Try it free!</button>
+                        </section>
+
+                    </section>
+
+    
                 </header>
             </main>
         );

@@ -4,8 +4,10 @@
     <title>FloatingNote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script type="text/javascript">
+      window.logo = "<%=image_url('cloud_logo.png')%>".html_safe
+    </script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 

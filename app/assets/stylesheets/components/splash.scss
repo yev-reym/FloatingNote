@@ -1,25 +1,26 @@
 html {
     height: 100%;
-    overflow-x: scroll;
+    display: flex;
+    overflow-y: scroll;
 }
 body {
     height: 100%
 }
 
 #root{
-    overflow-y: scroll;
-    background-color: #f2f2f2;
-    padding-bottom: 75px;
-    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     color: #333;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: block;
     height: 100%;
+    background-color: #f2f2f2;
+    padding-bottom: 75px;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
 }
 
 .splash-app{
     width: 1240px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -29,7 +30,6 @@ body {
  border-top: 4px solid #f50;
  background-color: #666;
  height: 450px;
- display: block;
  width: 100%;
  margin: 0 auto;
 }
@@ -38,14 +38,11 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('carousel_demo_image.png');
-    float:left;
+    display: block;
+    margin: 0 auto;
 }
 
-.carousel-container{
-
-}
-
-.buttons{
+.top-banner-nav{
     display:flex;
     justify-content: flex-end;
     font-size: 14px;
@@ -58,18 +55,79 @@ body {
     align-items: center;  
 }
 
-
-.signin{
-    cursor: pointer;
-    margin: 6px;
+.buttons{
+   height: 30px; 
+   padding: 6px 16px;
+   border-radius: 3px;
+   margin-right: 10px;
+   font-size: 14px;
+   color: white;
+   background: none;
+   font-weight: 100;
+   letter-spacing: 1px;
+   box-sizing: border-box;
 }
 
-.signup{
-    cursor: pointer;
-    margin: 6px;
+.buttons:hover{
+     cursor: pointer;
 }
 
+// .signin{
+//     cursor: pointer;
+//     margin: 6px;
+// }
 
+// .signup{
+//     cursor: pointer;
+//     margin: 6px;
 
+// }
 
+.demo-button{
+    height: 46px;
+    font-size: 18px;
+    background: #f50;
+    border: none;
+}
+
+.cloud-logo{
+    margin: 10px 32px;
+}
+
+.cloud-logo img{
+    height: 45px;
+    width: 45px;
+}
+
+.cloud-logo img:after{
+    content:'SOUNDCLOUD';
+    display: block;
+}
+
+.carousel-nav{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 25px 0 0;
+}
+
+.carousel-mid {
+    display: flex;
+    justify-content: center;
+    width: 529px;
+    margin: 8% auto;
+    text-align: center;
+ }
+
+ .carousel-mid h1 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 26px;
+ }
+
+ .carousel-mid p {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 26px;
+ }
 

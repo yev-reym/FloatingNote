@@ -21,6 +21,7 @@ time, mark, audio, video {
 
 body {
     line-height:1;
+    letter-spacing: 1px;
 }
 
 article,aside,details,figcaption,figure,
@@ -51,28 +52,28 @@ a {
 }
 
 /* change colours to suit your needs */
-ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
-}
+// ins {
+//     background-color:#ff9;
+//     color:#000;
+//     text-decoration:none;
+// }
 
-/* change colours to suit your needs */
-mark {
-    background-color:#ff9;
-    color:#000; 
-    font-style:italic;
-    font-weight:bold;
-}
+// /* change colours to suit your needs */
+// mark {
+//     background-color:#ff9;
+//     color:#000; 
+//     font-style:italic;
+//     font-weight:bold;
+// }
 
-del {
-    text-decoration: line-through;
-}
+// del {
+//     text-decoration: line-through;
+// }
 
-abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
-}
+// abbr[title], dfn[title] {
+//     border-bottom:1px dotted;
+//     cursor:help;
+// }
 
 table {
     border-collapse:collapse;
@@ -91,3 +92,4 @@ hr {
 
 input, select {
     vertical-align:middle;}
+
