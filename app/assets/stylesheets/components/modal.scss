@@ -1,0 +1,36 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 1;
+}  
+
+.modal-child {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:flex;
+  background: #ffffff;
+  height: 620px;
+  width: 450px;
+  justify-content: space-between;
+  margin: 76px 0 30px;
+  padding: 25px; 
+  // opacity: .5;
+  // transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;
+}
+
+.info-check-form{
+  display:flex;
+  align-items: center;
+}
+
+.email-input{
+  width:400px;
+  height:40px;
+  padding:7px 8px;
+}

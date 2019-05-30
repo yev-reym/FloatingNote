@@ -16,8 +16,8 @@ class User < ApplicationRecord
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
-    def self.find_by_credentials(email, password)
-        user = User.find_by(email: email)
+    def self.find_by_credentials(info, password)
+        user = User.find_by(email: info) || User.find_by(profile_url: info)
         return nil unless user && user.is_password?(password)
         user
     end

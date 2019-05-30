@@ -2,20 +2,21 @@ html {
     height: 100%;
     display: flex;
     overflow-y: scroll;
+    background-color: #f2f2f2;
 }
 body {
-    height: 100%
+    height: 100%;
+    margin: 0 auto;
 }
 
 #root{
     color: #333;
     margin: 0 auto;
     padding: 0;
-    display: block;
+    display: flex;
     height: 100%;
-    background-color: #f2f2f2;
     padding-bottom: 75px;
-    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font: 12px/1.4 Interstate, "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
 }
 
 .splash-app{
@@ -24,43 +25,44 @@ body {
     margin: 0 auto;
 }
 
-.top-banner{
+.carousel{
  color: #fff;
  position: relative;
  border-top: 4px solid #f50;
- background-color: #666;
  height: 450px;
+ background-image: url('carousel_demo_image.png');
  width: 100%;
  margin: 0 auto;
+ min-height: 450px;
+
 }
 
-.carousel{
-    width: 100%;
-    height: 100%;
-    background-image: url('carousel_demo_image.png');
-    display: block;
-    margin: 0 auto;
+.carousel-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.top-banner-nav{
+.carousel-nav{
     display:flex;
     justify-content: flex-end;
     font-size: 14px;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans", Garuda, Verdana,Tahoma,sans-serif;
     font-weight: 100;
     text-align: center;
     box-sizing: border-box;
-    background: green;
     flex-wrap: nowrap;
     align-items: center;  
 }
 
 .buttons{
    height: 30px; 
-   padding: 6px 16px;
+   padding: 2px 15px;
    border-radius: 3px;
    margin-right: 10px;
-   font-size: 14px;
+//    font-size: 14px;
+//    font: inherit;
+   font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
    color: white;
    background: none;
    font-weight: 100;
@@ -72,20 +74,21 @@ body {
      cursor: pointer;
 }
 
+button:focus {outline:0;}
+
 // .signin{
-//     cursor: pointer;
-//     margin: 6px;
-// }
-
-// .signup{
-//     cursor: pointer;
-//     margin: 6px;
 
 // }
+
+.signup{
+    border: none;
+    background: #f50;
+
+}
 
 .demo-button{
     height: 46px;
-    font-size: 18px;
+    font: inherit; 
     background: #f50;
     border: none;
 }
@@ -94,30 +97,29 @@ body {
     margin: 10px 32px;
 }
 
-.cloud-logo img{
-    height: 45px;
-    width: 45px;
+.cloud-logo-item{
+    height: 25px;
+    width: 60px;
+    position:absolute;
 }
 
-.cloud-logo img:after{
-    content:'SOUNDCLOUD';
-    display: block;
+.cloud-logo:after{
+    content:"SOUNDCLOUD"; 
+    color: #fff;
+    display: inline-block;
+
 }
 
 .carousel-nav{
     display:flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 0 25px 0 0;
+    margin-top: 25px;
 }
 
-.carousel-mid {
-    display: flex;
-    justify-content: center;
-    width: 529px;
-    margin: 8% auto;
-    text-align: center;
- }
+// .carousel-mid {
+   
+//  }
 
  .carousel-mid h1 {
     font-size: 36px;
@@ -131,3 +133,24 @@ body {
     margin-bottom: 26px;
  }
 
+ .carousel-information{
+     display:flex;
+    justify-content: center;
+    width: 530px;
+    margin: 8% auto;
+    text-align: center;
+
+ }
+
+// .buttons{
+//     display:flex;
+//     justify-content: flex-end;
+//     font-size: 14px;
+//     font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+//     font-weight: 100;
+//     text-align: center;
+//     box-sizing: border-box;
+//     background: green;
+//     flex-wrap: nowrap;
+//     align-items: center;  
+// }

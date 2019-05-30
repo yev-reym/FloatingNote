@@ -1,10 +1,10 @@
 import React from 'react';
 
-class SessionForm extends React.Component {
+class SignUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
+            info: this.props.info,
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,14 +12,14 @@ class SessionForm extends React.Component {
 
     update(field) {
         return e => this.setState({
-            [field]: e.currentTarget.value
+            [field]: e.target.value
         });
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        // this.props.processForm(user);
+        this.props.processForm(user);
     }
 
     renderErrors() {
@@ -38,25 +38,28 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-           
+
                     {this.renderErrors()}
                     <div className="login-form">
                         <br />
-                        <label>Username:
-              <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                            />
-                        </label>
+
+                        <input type="text"
+                            value={this.state.info}
+                            onClick={() => {
+                                this.props.closeModal()
+                                this.props.returnForm()
+                            }}
+                            className="login-input"
+                        />
                         <br />
-                        <label>Password:
-              <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
+
+                        <input type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            className="login-input"
+                            placeholder="Your Password *"
+                        />
+
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
@@ -66,4 +69,4 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm;
+export default SignUpForm;
