@@ -33,7 +33,7 @@ class PendingInfoForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.confirmInfo(this.state.info).then(this.handleForm);
+        this.props.confirmInfo(this.state.info).then(this.handleForm());
     }
 
     handleForm(){
