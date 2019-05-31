@@ -1,7 +1,7 @@
 
 
 
-
+debugger
 export const infoCheck = (info) => (
     $.ajax({
         method: 'GET',

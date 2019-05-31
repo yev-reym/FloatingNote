@@ -26,13 +26,15 @@
   // transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;
 }
 
-.info-check-form{
+.modal-form{
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  align-content: center;
 }
 
-.continue-submit{
+.submit-button{
   width: 420px;
   border: none;
   background: #f50;
@@ -48,8 +50,10 @@
    box-sizing: border-box;
 }
 
-.email-input{
+.input-box{
   width:400px;
   height:40px;
   padding:7px 8px;
+   border-radius: 5px;
+   border:1px solid gray ;
 }

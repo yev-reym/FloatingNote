@@ -33,7 +33,8 @@ class PendingInfoForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.confirmInfo(this.state.info).then(this.handleForm);
+        // debugger
+        this.props.exists === undefined ? this.props.confirmInfo(this.state.info) : this.handleForm()
     }
 
     handleForm(){
@@ -45,10 +46,10 @@ class PendingInfoForm extends React.Component {
             return (
 
                 <>
-                    <form onSubmit={this.handleSubmit} className="info-check-form">
+                    <form onSubmit={this.handleSubmit} className="modal-form">
 
-                        <input type="text" className="email-input" onChange={this.update()} placeholder="Your email address of profile URL *" />
-                        <input className="continue-submit" type="submit" value="Continue" />
+                        <input type="text" className="input-box" onChange={this.update()} placeholder="Your email address of profile URL *" />
+                        <input className="submit-button" type="submit" value="Continue" />
 
                     </form>
 

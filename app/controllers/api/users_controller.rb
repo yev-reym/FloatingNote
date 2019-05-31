@@ -4,13 +4,14 @@ class Api::UsersController < ApplicationController
         @user = User.find_by(email: params[:info]) || User.find_by(profile_url: params[:info])
 
         if @user
-            render json: {pendingInfo: params[:info], exists: true }
+            render json: {info: params[:info], exists: true }
         else 
-            if params[:info].split('.').length == 2 || params[:info].split('@').length == 2
-                render json: {message: 'Enter a valid email address or profile url.'}
-            else 
-                render json: {message: 'That profile url does not exist'}
-            end
+            render json: {info: params[:info], exists: false }
+            # if params[:info].split('.').length == 2 || params[:info].split('@').length == 2
+            #     render json: {message: 'Enter a valid email address or profile url.'}
+            # else 
+            #     render json: {message: 'That profile url does not exist'}
+            # end
         end
     end
 
