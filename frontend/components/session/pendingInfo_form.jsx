@@ -1,22 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, logout, confirmInfo } from '../../actions/auth_actions';
-import LoginFormContainer from './login_form_container';
-import SignUpFormContainer from './signup_form_container';
+import {closeModal, openModal} from '../../actions/modal_actions';
+import LoginForm from './login_form';
+import SignUpContainer from './signup_container';
+import {withRouter} from 'react-router-dom';
 
-const mapStateToProps = ({ui}) => {
+
+const mapStateToProps = (state, ownProps) => {
     return {
-        exists: ui.pendingInfo.exists 
+        errorsSession: state.errors.session,
+        errorsInfo: state.errors.pendingInfo,
+        exists: state.ui.pendingInfo.exists 
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
+        processForm: (user) => dispatch(login(user)),
+        returnForm: () => dispatch(openModal('checkInfo')),
+        closeModal: () => dispatch(closeModal()),
         confirmInfo: (info) => dispatch(confirmInfo(info)),
         login: (user) => dispatch(login(user)),
-        signup: (user) => dispatch(signup(user))
+        signup: (user) => dispatch(signup(user)),
+        logout: () => dispatch(logout())
     };
 };
+
 
 class PendingInfoForm extends React.Component {
     constructor(props) {
@@ -33,22 +43,23 @@ class PendingInfoForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.confirmInfo(this.state.info).then(this.handleForm());
+
+        this.props.exists === undefined ? this.props.confirmInfo(this.state.info) : this.handleForm()
     }
 
     handleForm(){
         if (this.props.exists === true) {
-            return <LoginFormContainer info={this.state.info} login={this.props.login} />;
+            return <LoginForm info={this.state.info} history={this.props.history} login={this.props.login} closeModal={this.props.closeModal} processForm={this.props.processForm} returnForm={this.props.returnForm}/>;
         } else if (this.props.exists === false) {
-            return < SignUpFormContainer info={this.state.info} signup={this.props.signup} />;
+            return <SignUpContainer  info={this.state.info} formStage={'password'} />;
         } else {
             return (
 
                 <>
-                    <form onSubmit={this.handleSubmit} className="info-check-form">
+                    <form onSubmit={this.handleSubmit} className="modal-form">
 
-                        <input type="text" className="email-input" onChange={this.update()} placeholder="Your email address of profile URL *" />
-                        <input type="submit" value="Continue" />
+                        <input type="text" className="input-box" onChange={this.update()} placeholder="Your email address of profile URL *" />
+                        <input className="submit-button" type="submit" value="Continue" />
 
                     </form>
 
@@ -74,4 +85,4 @@ class PendingInfoForm extends React.Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PendingInfoForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PendingInfoForm));

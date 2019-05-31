@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePath = this.handlePath.bind(this);
     }
 
     update(field) {
@@ -19,52 +20,51 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(this.handlePath);
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
+    handlePath(){
+        this.props.closeModal();
+        this.props.history.push('/discover');
     }
+
+    // renderErrors() {
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
 
     render() {
         return (
-            <div className="login-form-container">
-                <form onSubmit={this.handleSubmit} className="login-form-box">
+            <form onSubmit={this.handleSubmit} className="modal-form">
            
-                    {this.renderErrors()}
+                    {/* {this.renderErrors()} */}
                     <div className="login-form">
-                        <br />
                        
-              <input type="text"
-                                value={this.state.info}
-                                onClick={()=>{
+              <button           onClick={(e)=>{
+                                    e.preventDefault();
                                     this.props.closeModal()
                                     this.props.returnForm()
                                 }}
-                                className="login-input"
-                            />
-                        <br />
+                        className="input-box post-info-check"
+                            ><span>&#9668;  {this.state.info} </span> </button>
                     
               <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className="login-input"
+                                className="input-box"
                                 placeholder="Your Password *"
                             />
                     
-                        <br />
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+                    <input className="submit-button" type="submit" value="Sign in" />
                     </div>
                 </form>
-            </div>
         );
     }
 }

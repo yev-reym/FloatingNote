@@ -1,12 +1,15 @@
 class Api::UsersController < ApplicationController 
 
     def info_check
+     
         @user = User.find_by(email: params[:info]) || User.find_by(profile_url: params[:info])
 
         if @user
-            render json: {pendingInfo: params[:info], exists: true }
+            render json: {info: params[:info], exists: true }
         else 
-            if params[:info].split('.').length == 2 || params[:info].split('@').length == 2
+            if valid_email?(params[:info])
+                render json: {info: params[:info], exists: false }
+            elsif invalid_email?(params[:info])
                 render json: {message: 'Enter a valid email address or profile url.'}
             else 
                 render json: {message: 'That profile url does not exist'}
@@ -17,12 +20,12 @@ class Api::UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
-
+        debugger
         if @user.save
             login!(@user)
-            render json: "api/users/show"
+            render :show
         else 
-            render json: @user.errors.full_messages
+            render json: @user.errors.full_messages, status: 404
         end
     end
 
@@ -30,6 +33,14 @@ class Api::UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :email, :password, :age, :gender, :profile_url)
+    end
+
+    def valid_email?(info)
+        info.split('.').length == 2 && info.split('@').length == 2
+    end
+
+    def invalid_email?(info)
+        info.split('.').length == 2 || info.split('@').length == 2
     end
 
 

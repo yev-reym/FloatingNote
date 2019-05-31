@@ -5,32 +5,67 @@
   right: 0;
   left: 0;
   z-index: 10;
-  opacity: 1;
+  background: rgba(240,240,240,.9);
 }  
 
 .modal-child {
   position: fixed;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   display:flex;
   background: #ffffff;
-  height: 620px;
-  width: 450px;
+  height: 570px;
+  width: 400px;
+  flex-direction: column;
   justify-content: space-between;
   margin: 76px 0 30px;
   padding: 25px; 
-  // opacity: .5;
-  // transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;
-}
-
-.info-check-form{
-  display:flex;
   align-items: center;
 }
 
-.email-input{
+.modal-form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.submit-button{
+  width: 420px;
+  border: none;
+  background: #f50;
+  height: 58px; 
+   padding: 2px 15px;
+   border-radius: 3px;
+   margin-top: 10px;
+   font-size: 14px;
+   font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+   color: white;
+   font-weight: 100;
+   letter-spacing: 1px;
+   box-sizing: border-box;
+}
+
+.input-box{
   width:400px;
   height:40px;
   padding:7px 8px;
+   border-radius: 5px;
+   border:1px solid gray ;
 }
+
+.post-info-check{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.required-field:after{
+     content:"*" ;
+     color:red;
+}
+
+// .extra-info{
+
+// }

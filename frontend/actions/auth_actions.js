@@ -33,15 +33,28 @@ export const clearErrors = () => (
     {type: CLEAR_ERRORS}
 );
 
-export const confirmInfo = info => dispatch => (
-    UserAPIUtil.infoCheck(info).then(res => receiveInfoResponse(res),
-     err => dispatch(receiveInfoErrors(err.responseJSON)))
-);
+export const confirmInfo = info => dispatch => {
 
-export const signup = user => dispatch => (
-    UserAPIUtil.signup(user).then(user => dispatch(receiveCurrentUser(user),
-    err => dispatch(receiveSessionErrors(err.responseJSON))))
-);
+    return UserAPIUtil.infoCheck(info).then(
+        res => {
+            dispatch(receiveInfoResponse(res));
+        },
+        err => dispatch(receiveInfoErrors(err.responseJSON)
+        ));
+};
+
+
+export const signup = user => dispatch => {
+    debugger
+    return UserAPIUtil.signup(user).then(user => {
+        debugger
+        return dispatch(receiveCurrentUser(user));
+    },
+    err => {
+        debugger
+        dispatch(receiveSessionErrors(err.responseJSON));
+        });
+};
 
 export const login = user => dispatch => (
     SessionAPIUtil.login(user).then(user => dispatch(receiveCurrentUser(user),

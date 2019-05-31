@@ -2,15 +2,15 @@
 
 
 
-export const infoCheck = (info) => (
-    $.ajax({
+export const infoCheck = (info) => {
+   return $.ajax({
         method: 'GET',
         url: 'api/users/info_check',
         data: {
             info
         }
-    })
-);
+    });
+};
 
 export const signup = (user) => (
     $.ajax({
