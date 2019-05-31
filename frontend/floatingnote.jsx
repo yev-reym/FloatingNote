@@ -8,7 +8,14 @@ import Root from './components/Root';
 
 document.addEventListener('DOMContentLoaded',()=>{
     const root = document.getElementById('root');
-    const store = configureStore();
+
+    let store;
+    if (window.currentUser) {
+        store = configureStore({ session: { currentUser: window.currentUser } });
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
 
     //window testing
     window.signup = signup;

@@ -48,7 +48,7 @@ class PendingInfoForm extends React.Component {
                     <form onSubmit={this.handleSubmit} className="info-check-form">
 
                         <input type="text" className="email-input" onChange={this.update()} placeholder="Your email address of profile URL *" />
-                        <input type="submit" value="Continue" />
+                        <input className="continue-submit" type="submit" value="Continue" />
 
                     </form>
 
