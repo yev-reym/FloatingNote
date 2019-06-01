@@ -10,9 +10,9 @@ class Api::UsersController < ApplicationController
             if valid_email?(params[:info])
                 render json: {info: params[:info], exists: false }
             elsif invalid_email?(params[:info])
-                render json: {message: 'Enter a valid email address or profile url.'}
+                render json: {message: 'Enter a valid email address or profile url.'}, status: 422
             else 
-                render json: {message: 'That profile url does not exist'}
+                render json: {message: 'That profile url does not exist'}, status: 422
             end
         end
     end
@@ -20,7 +20,7 @@ class Api::UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
-        debugger
+        
         if @user.save
             login!(@user)
             render :show
@@ -36,11 +36,11 @@ class Api::UsersController < ApplicationController
     end
 
     def valid_email?(info)
-        info.split('.').length == 2 && info.split('@').length == 2
+        info.split('.').length >= 2 && info.split('@').length == 2
     end
 
     def invalid_email?(info)
-        info.split('.').length == 2 || info.split('@').length == 2
+        info.split('.').length < 2 || info.split('@').length != 2
     end
 
 
