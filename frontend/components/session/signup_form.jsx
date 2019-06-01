@@ -80,7 +80,7 @@ class SignUpForm extends React.Component {
                                     this.props.returnForm('checkInfo')
                                 }}
                                     className="input-box post-info-check"
-                                ><span>&#9668;  {this.state.info} </span> </button>
+                                ><span>&#9668;  {this.state.info.email </span> </button>
 
                                 <label className="required-field">
                                     Choose a password
@@ -107,6 +107,7 @@ class SignUpForm extends React.Component {
                                 <label className="required-field">
                                     Tell us your age
                         <input type="text"
+                                        autoFocus
                                         value={this.state.age}
                                         onChange={this.update('age')}
                                         className="input-box"

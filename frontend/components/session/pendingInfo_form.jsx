@@ -54,16 +54,18 @@ class PendingInfoForm extends React.Component {
             return <SignUpContainer  info={this.state.info} formStage={'password'} />;
         } else {
             return (
-
-                <>
-                    <form onSubmit={this.handleSubmit} className="modal-form">
+                <form onSubmit={this.handleSubmit} className="modal-form">
+                    <div className="pending-info-form-container">
+                    
+                        <button className="modal-demo-login"> Continue with Demo Login</button>
+                        <h3><span>or</span></h3>
 
                         <input type="text" className="input-box" onChange={this.update()} placeholder="Your email address of profile URL *" />
                         <input className="submit-button" type="submit" value="Continue" />
 
-                    </form>
+                   
 
-                    <section className="user-privacy">
+                        <section className="user-privacy">
 
                         <p>We may use your email and devices for updates and tips on SoundCloud's products and services,
                  and for activities notifications. You can unsubscribe for free at any time in your notification settings.</p>
@@ -71,8 +73,9 @@ class PendingInfoForm extends React.Component {
                         <p>We may use information you provide us in order to show you
                     targeted ads as described in our Privacy Policy.</p>
 
-                    </section>
-                </>
+                        </section>
+                    </div>
+                 </form>
             );
         }
     }
