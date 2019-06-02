@@ -67,9 +67,10 @@ class SignUpForm extends React.Component {
                 return (
                     <>
                         <form onSubmit={this.handleSubmit} className="modal-form">
+                            <div className="signup-form">
                             <h1 className='create-account'>Create your FloatingNote account</h1>
                             {/* {this.renderErrors()} */}
-                            <div className="signup-form">
+                
 
                                 <button onClick={(e) => {
                                     e.preventDefault();
@@ -78,26 +79,30 @@ class SignUpForm extends React.Component {
                                     this.props.returnForm('checkInfo')
                                 }}
                                     form=''
-                                    className="input-box-signup"
+                                    className="input-box-login"
                                 ><span>&#9668; </span> <span>{this.state.email} </span> </button>
 
                                 <label className="required-field">
                                     Choose a password
-                        <input type="password"
+                                <input type="password"
                                         value={this.state.password}
                                         onChange={this.update('password')}
-                                        className="input-box"
+                                        className="input-box-login-pass"
                                         placeholder="Your Password *"
                                     />
                                 </label>
 
-                                <p>By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
+                                <p className='sign-in-text'>By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
 
                                 <input className="submit-button" type="submit" value="Accept & Continue" />
-
-                               <h3>Are you trying to sign in?</h3> 
-                               <p>The email address that you entered was not found.
-                                Double-check your email address.</p> 
+                                <div className='are-you-sure'>
+                                    <h3>Are you trying to sign in?</h3> 
+                                    <p>
+                                    The email address that you entered was not found.
+                                    Double-check your email address.
+                                    </p> 
+                                </div>
+                              
                             </div>
                         </form> </>
                 );
