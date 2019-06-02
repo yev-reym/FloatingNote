@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, default: {format: :json} do 
     get '/users/info_check', to: 'users#info_check'
-    resources :users, only: [:create, :show]
+    resources :users, only: [:create, :show, :update]
     resource :session, only: [:create, :destroy]
   end
 end

@@ -225,6 +225,7 @@
 
 .signup-form{
   width: 400px;
+  margin-top:50px;
 }
 
 .are-you-sure{
@@ -259,4 +260,20 @@
 
 .required-field-gender{
   left: 1px;
+}
+
+.gender-field{
+  background: transparent;
+  transition: border-color .1s;
+}
+
+.errors{
+   font-size: 12px;
+   margin-top: 5px;
+   margin-bottom: 17px;
+   color: #cf0000;
+}
+
+.errors-input{
+  border: 1px solid #cf0000;
 }

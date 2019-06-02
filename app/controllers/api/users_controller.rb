@@ -9,10 +9,10 @@ class Api::UsersController < ApplicationController
         else 
             if valid_email?(params[:info])
                 render json: {info: params[:info], exists: false }
+            elsif not_email(params[:info])
+                render json: ['That profile url does not exist'], status: 422
             elsif invalid_email?(params[:info])
-                render json: {message: 'Enter a valid email address or profile url.'}, status: 422
-            else 
-                render json: {message: 'That profile url does not exist'}, status: 422
+                render json: ['Enter a valid email address or profile URL.'], status: 422
             end
         end
     end
@@ -26,6 +26,16 @@ class Api::UsersController < ApplicationController
             render :show
         else 
             render json: @user.errors.full_messages, status: 404
+        end
+    end
+
+    def update 
+        @user = User.find_by(email: params[:user][:email])
+
+        if @user.update(user_params)
+            render :show
+        else
+            render json: @user.full_messages.errors, status: 404
         end
     end
 
@@ -43,5 +53,8 @@ class Api::UsersController < ApplicationController
         info.split('.').length < 2 || info.split('@').length != 2
     end
 
+    def not_email(info)
+        !info.include?('@') && !info.include?('.') && !info.empty?
+    end
 
 end

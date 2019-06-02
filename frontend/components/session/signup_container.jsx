@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login, logout, confirmInfo, signup} from '../../actions/auth_actions';
+import { login, logout, confirmInfo, signup, updateUsername} from '../../actions/auth_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import SignUpForm from './signup_form';
 import { withRouter } from 'react-router-dom';
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
         errorsSession: state.errors.session,
         errorsInfo: state.errors.pendingInfo,
         exists: state.ui.pendingInfo.exists,
-        info: { age: '', gender: '', password: '', email: info, formStage},
+        info: { age: '', gender: '', password: '', email: info, username: null, formStage},
     };
 };
 
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => {
         confirmInfo: (info) => dispatch(confirmInfo(info)),
         login: (user) => dispatch(login(user)),
         signup: (user) => dispatch(signup(user)),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        updateUsername: (user) => dispatch(updateUsername(user))
     };
 };
 

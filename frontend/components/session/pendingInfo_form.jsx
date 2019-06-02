@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, logout, confirmInfo } from '../../actions/auth_actions';
+import { login, logout, confirmInfo, clearErrors } from '../../actions/auth_actions';
 import {closeModal, openModal} from '../../actions/modal_actions';
 import LoginForm from './login_form';
 import SignUpContainer from './signup_container';
 import {withRouter} from 'react-router-dom';
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         errorsSession: state.errors.session,
         errorsInfo: state.errors.pendingInfo,
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
         confirmInfo: (info) => dispatch(confirmInfo(info)),
         login: (user) => dispatch(login(user)),
         signup: (user) => dispatch(signup(user)),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        clearErrors: () => dispatch(clearErrors())
     };
 };
 
@@ -35,24 +36,45 @@ class PendingInfoForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         this.handleForm = this.handleForm.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     update() {
-        return (e) => (this.setState({ info: e.currentTarget.value }));
+        return (e) => {
+            if (this.state.info === ''){
+                this.props.clearErrors();
+                this.setState({ info: e.currentTarget.value });
+            } else {
+                this.setState({ info: e.currentTarget.value });
+            }
+        };
     }
 
     handleSubmit(e) {
         e.preventDefault();
-
+        this.props.clearErrors();
         this.props.exists === undefined ? this.props.confirmInfo(this.state.info) : this.handleForm()
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errorsInfo.map((error, i) => (
+                    <li className='errors' key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
     handleForm(){
         if (this.props.exists === true) {
-            return <LoginForm info={this.state.info} history={this.props.history} login={this.props.login} closeModal={this.props.closeModal} processForm={this.props.processForm} returnForm={this.props.returnForm}/>;
+            return <LoginForm errorsSession={this.props.errorsSession} info={this.state.info} history={this.props.history} login={this.props.login} closeModal={this.props.closeModal} processForm={this.props.processForm} returnForm={this.props.returnForm}/>;
         } else if (this.props.exists === false) {
             return <SignUpContainer  info={this.state.info} formStage={'password'} />;
         } else {
+            const errorStyle = this.props.errorsInfo[0] ? 'errors-input' : null
             return (
                 <form onSubmit={this.handleSubmit} className="modal-form">
                     <div className="info-form-container">
@@ -60,7 +82,8 @@ class PendingInfoForm extends React.Component {
                         <button form="" className="button button-large modal-demo-login"> Continue with Demo Login</button>
                         <h2 className="divider"><span>or</span></h2>
 
-                        <input type="text" className="input-box" onChange={this.update()} placeholder="Your email address of profile URL *" value={this.state.info} />
+                        <input type="text" className={`input-box ${errorStyle}`} onChange={this.update()} placeholder="Your email address of profile URL *" value={this.state.info} />
+                        {this.renderErrors()}
                         <input className="submit-button" type="submit" value="Continue" />
 
                    

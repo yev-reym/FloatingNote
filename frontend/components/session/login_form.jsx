@@ -28,23 +28,23 @@ class LoginForm extends React.Component {
         this.props.history.push('/discover');
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errorsSession.map((error, i) => (
+                    <li className='errors' key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
     render() {
+        const errorStyle = this.props.errorsSession[0] ? 'errors-input' : null
         return (
             <form onSubmit={this.handleSubmit} className="modal-form">
            
-                    {/* {this.renderErrors()} */}
                     <div className="login-form-container">
                        
               <button           
@@ -61,9 +61,10 @@ class LoginForm extends React.Component {
                                 autoFocus
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className="input-box-login-pass"
+                                className={`input-box-login-pass ${errorStyle}`}
                                 placeholder="Your Password *"
                             />
+                    {this.renderErrors()}
                     
                     <input className="submit-button" type="submit" value="Sign in" />
                     </div>

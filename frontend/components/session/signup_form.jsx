@@ -25,22 +25,21 @@ class SignUpForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         if (this.state.formStage === 'password') {
-          
            this.setState({formStage: "gender"});
         } else if (this.state.formStage === "gender") {
-            const {age, gender, password, username, email} = this.state;
-            const user = {age, gender, password, email, username};
+            const { age, gender, password, email} = this.state;
+            const user = { age, gender, password, email};
             this.props.signup(user).then(this.handlePath);
         } else {
-            debugger
-            //update user username field
-            this.props.closeModal();
+            const { age, gender, password, email, username } = this.state;
+            const user = { age, gender, password, email, username };
+            this.props.updateUsername(user).then(() => this.props.closeModal());
         }
     }
 
 
 
-     // renderErrors() {
+    //  renderErrors() {
     //     return (
     //         <ul>
     //             {this.props.errors.map((error, i) => (
@@ -59,7 +58,7 @@ class SignUpForm extends React.Component {
                 return (
                     <>
                         <form onSubmit={this.handleSubmit} className="modal-form">
-                            <div className="signup-form">
+                            <div className="logn-form-container signup-form">
                             <h1 className='create-account'>Create your FloatingNote account</h1>
                             {/* {this.renderErrors()} */}
                 
@@ -121,8 +120,8 @@ class SignUpForm extends React.Component {
 
                             <label className="required-field">
                                    <span>Gender</span>
-                        <select className='input-box-login-pass gender-selector' onChange={this.update('gender')}>
-                                    <option defaulValue="Indicate your gender">Indicate your gender</option>
+                        <select className='input-box-login-pass gender-selector gender-field' onChange={this.update('gender')} >
+                                    <option defaulvalue="Indicate your gender">Indicate your gender</option>
                                     <option value="Female">Female</option>
                                     <option value="Male">Male</option>
                                     <option value="Prefer not to say">Prefer not to say</option>
@@ -134,25 +133,24 @@ class SignUpForm extends React.Component {
                         </form>
                     )
             case 'display-name':
-                debugger
                 return (
 
                     <form onSubmit={this.handleSubmit} className="modal-form">
-                        <h2>Tell us a bit about yourself</h2>
+                        <div className="login-form-container gender-margin-top">
+                        <h1 className='create-account'>Tell us a bit about yourself</h1>
                         {/* {this.renderErrors()} */}
-                        <div className="signup-form">
 
                             <label className="required-field">
-                                Choose your display name
+                                <span>Choose your display name</span> 
                         <input type="text"
-                                    value={this.state.username}
+                                    value={this.state.username ? this.state.username : ""}
                                     onChange={(e)=>this.setState({username: e.target.value})}
                                     className="input-box"
                                     id='display-name'
                                 />
                             </label>
 
-                            <p>Your display name can be anything you like. Your name or artist name are good choices.</p>
+                            <p className='sign-in-text'>Your display name can be anything you like. Your name or artist name are good choices.</p>
 
                             <input className="submit-button" type="submit" value="Get started" />
                         </div>

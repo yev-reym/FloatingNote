@@ -11,7 +11,11 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render "api/users/show"
         else
-            render json: ["Invalid Credentials"], status: 401
+           if (params[:user][:password].length == 0)
+                render json: ['Enter a password.'], status: 401
+            else
+                render json: ['This password is incorrect.'], status: 422
+            end
         end
     end
 
