@@ -76,7 +76,7 @@
   font-size: 14px;
   display: inline-block;
   margin-top: 0;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.3;
   position:relative;
   margin-bottom: 12px; 
@@ -84,15 +84,15 @@
   width: 400px;
 }
 
-.required-field:before{
+.required-field > span:after{
      content:'*';
      position: fixed;
      color: #cf0000;
      display: inline-block;
      margin-left: 2px;
-     left: 157px;
      font-size: 14px;
 }
+
 .user-privacy{
   margin-top: 50px;
   text-align: left; 
@@ -247,4 +247,16 @@
 .are-you-sure p{
   width: 300px;
   font-weight: bold;
+}
+
+.gender-selector{
+  font-size:16px;
+}
+
+.gender-margin-top{
+  margin-top: 130px;
+}
+
+.required-field-gender{
+  left: 1px;
 }

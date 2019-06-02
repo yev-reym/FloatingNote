@@ -17,14 +17,6 @@ class SignUpForm extends React.Component {
         });
     }
 
-    // componentDidMount(){
-    //     if (this.state.formStage === 'gender'){
-    //         document.getElementById('age').focus();
-    //     } else {
-    //         document.getElementById('display-name').focus();
-    //     }
-    // }
-
     handlePath() {
         this.setState({ formStage: "display-name" });
         this.props.history.push('/discover');
@@ -83,7 +75,7 @@ class SignUpForm extends React.Component {
                                 ><span>&#9668; </span> <span>{this.state.email} </span> </button>
 
                                 <label className="required-field">
-                                    Choose a password
+                                    <span>Choose a password</span> 
                                 <input type="password"
                                         value={this.state.password}
                                         onChange={this.update('password')}
@@ -110,12 +102,12 @@ class SignUpForm extends React.Component {
                 return (
         
                         <form onSubmit={this.handleSubmit} className="modal-form">
-                            <h2>Create your FloatingNote account</h2>
+                        <div className="login-form-container gender-margin-top">
+                            <h1 className='create-account'>Create your FloatingNote account</h1>
                             {/* {this.renderErrors()} */}
-                            <div className="signup-form">
 
                                 <label className="required-field">
-                                    Tell us your age
+                                    <span>Tell us your age</span> 
                         <input type="text"
                                         autoFocus
                                         form=''
@@ -127,9 +119,9 @@ class SignUpForm extends React.Component {
                                 </label>
 
 
-                                <label className="required-field">
-                                   Gender
-                        <select onChange={this.update('gender')}>
+                            <label className="required-field">
+                                   <span>Gender</span>
+                        <select className='input-box-login-pass gender-selector' onChange={this.update('gender')}>
                                     <option defaulValue="Indicate your gender">Indicate your gender</option>
                                     <option value="Female">Female</option>
                                     <option value="Male">Male</option>
