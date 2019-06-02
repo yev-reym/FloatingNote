@@ -17,11 +17,12 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
     line-height:1;
-    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
 }
 
 article,aside,details,figcaption,figure,
@@ -31,6 +32,10 @@ footer,header,hgroup,menu,nav,section {
 
 nav ul {
     list-style:none;
+}
+
+input:focus{
+    outline: none;
 }
 
 blockquote, q {
@@ -50,30 +55,6 @@ a {
     vertical-align:baseline;
     background:transparent;
 }
-
-/* change colours to suit your needs */
-// ins {
-//     background-color:#ff9;
-//     color:#000;
-//     text-decoration:none;
-// }
-
-// /* change colours to suit your needs */
-// mark {
-//     background-color:#ff9;
-//     color:#000; 
-//     font-style:italic;
-//     font-weight:bold;
-// }
-
-// del {
-//     text-decoration: line-through;
-// }
-
-// abbr[title], dfn[title] {
-//     border-bottom:1px dotted;
-//     cursor:help;
-// }
 
 table {
     border-collapse:collapse;

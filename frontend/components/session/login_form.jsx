@@ -45,20 +45,23 @@ class LoginForm extends React.Component {
             <form onSubmit={this.handleSubmit} className="modal-form">
            
                     {/* {this.renderErrors()} */}
-                    <div className="login-form">
+                    <div className="login-form-container">
                        
-              <button           onClick={(e)=>{
+              <button           
+                                    form = ''
+                                    onClick={(e)=>{
                                     e.preventDefault();
                                     this.props.closeModal()
-                                    this.props.returnForm()
+                                    this.props.returnForm('checkInfo')
                                 }}
-                        className="input-box post-info-check"
-                            ><span>&#9668;  {this.state.info} </span> </button>
+                        className="input-box-login"
+                    ><span>&#9668; </span> <span>{this.state.info} </span></button>
                     
               <input type="password"
+                                autoFocus
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className="input-box"
+                                className="input-box-login-pass"
                                 placeholder="Your Password *"
                             />
                     

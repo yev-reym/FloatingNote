@@ -45,13 +45,13 @@ export const confirmInfo = info => dispatch => {
 
 
 export const signup = user => dispatch => {
-    debugger
+
     return UserAPIUtil.signup(user).then(user => {
-        debugger
+      
         return dispatch(receiveCurrentUser(user));
     },
     err => {
-        debugger
+        
         dispatch(receiveSessionErrors(err.responseJSON));
         });
 };

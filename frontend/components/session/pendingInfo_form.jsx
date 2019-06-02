@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
-        returnForm: () => dispatch(openModal('checkInfo')),
+        returnForm: (name) => dispatch(openModal(name)),
         closeModal: () => dispatch(closeModal()),
         confirmInfo: (info) => dispatch(confirmInfo(info)),
         login: (user) => dispatch(login(user)),
@@ -38,7 +38,7 @@ class PendingInfoForm extends React.Component {
     }
 
     update() {
-        return (e) => (this.setState({ info: e.target.value }));
+        return (e) => (this.setState({ info: e.currentTarget.value }));
     }
 
     handleSubmit(e) {
@@ -55,22 +55,22 @@ class PendingInfoForm extends React.Component {
         } else {
             return (
                 <form onSubmit={this.handleSubmit} className="modal-form">
-                    <div className="pending-info-form-container">
+                    <div className="info-form-container">
                     
-                        <button className="modal-demo-login"> Continue with Demo Login</button>
-                        <h3><span>or</span></h3>
+                        <button form="" className="button button-large modal-demo-login"> Continue with Demo Login</button>
+                        <h2 className="divider"><span>or</span></h2>
 
-                        <input type="text" className="input-box" onChange={this.update()} placeholder="Your email address of profile URL *" />
+                        <input type="text" className="input-box" onChange={this.update()} placeholder="Your email address of profile URL *" value={this.state.info} />
                         <input className="submit-button" type="submit" value="Continue" />
 
                    
 
                         <section className="user-privacy">
 
-                        <p>We may use your email and devices for updates and tips on SoundCloud's products and services,
+                        <p  className='sign-in-text'>We may use your email and devices for updates and tips on SoundCloud's products and services,
                  and for activities notifications. You can unsubscribe for free at any time in your notification settings.</p>
 
-                        <p>We may use information you provide us in order to show you
+                        <p className='sign-in-text'>We may use information you provide us in order to show you
                     targeted ads as described in our Privacy Policy.</p>
 
                         </section>

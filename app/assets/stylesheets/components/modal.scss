@@ -21,7 +21,7 @@
   justify-content: space-between;
   margin: 76px 0 30px;
   padding: 25px; 
-  align-items: center;
+  align-content: center;
 }
 
 .modal-form{
@@ -33,27 +33,39 @@
 }
 
 .submit-button{
-  width: 420px;
+  width: 100%;
   border: none;
   background: #f50;
-  height: 58px; 
-   padding: 2px 15px;
-   border-radius: 3px;
-   margin-top: 10px;
-   font-size: 14px;
-   font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-   color: white;
-   font-weight: 100;
-   letter-spacing: 1px;
-   box-sizing: border-box;
+  border-radius: 3px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  color: white; 
+  letter-spacing: 1px;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 15px;
+  height: 40px;
+  padding: 10px 15px;
 }
 
 .input-box{
-  width:400px;
-  height:40px;
-  padding:7px 8px;
-   border-radius: 5px;
-   border:1px solid gray ;
+  width: 92%;
+  height: 40px !important;
+  border-radius: 5px;
+  // border: 1px solid #999999 ;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+  transition: border-color .1s;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+::placeholder{
+  color: #999999;
 }
 
 .post-info-check{
@@ -61,11 +73,167 @@
   justify-content: flex-start;
 }
 
-.required-field:after{
-     content:"*" ;
-     color:red;
+.required-field{
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 6px;
+  margin-top: 0;
+  font-weight: 400;
+  line-height: 1.3;
+  position:relative;
 }
 
-// .extra-info{
+.required-field:before{
+     content:'*';
+     position: fixed;
+     color: #cf0000;
+     display: inline-block;
+     margin-left: 2px;
+     left: 157px;
+}
+.user-privacy{
+  margin-top: 50px;
+  text-align: left; 
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
 
-// }
+.sign-in-text{
+  margin: 10px 0;
+  display: block;
+  font-stretch: 100%;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 16.8px;
+  color: rgb(153, 153, 153);
+  font-style: normal;
+  text-size-adjust: 100%;
+}
+
+.info-form-container{
+  display: block;
+  width: 400px;
+  margin-top: 25%
+}
+
+.modal-demo-login{
+  text-indent: 27;
+  width: 100%;
+  color: #fff;
+  border-color: #4285f4;
+  background-color: #4285f4;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 15px;
+  height: 40px;
+  border-radius: 3px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.divider{
+  margin: 1em auto;
+  position: relative;
+  text-align: center;
+  display: block;
+  font-size: 16px;
+}
+
+.divider span{
+  font-size: 16px;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.divider:after {
+    display: inline-block;
+    width: 43%;
+    border-top: 1px solid #333;
+    content: " ";
+    position: absolute;
+    top: .5em;
+    right:0;
+    margin-top: .5%;
+}
+
+.divider:before {
+    display: inline-block;
+    width: 43%;
+    border-top: 1px solid #333;
+    content: " ";
+    position: absolute;
+    top: .5em;
+    left:0;
+    margin-top: .5%;
+}
+
+.login-form-container{
+  margin: 70%;
+  display: block;
+  width: 400px;
+  margin-top: 200px;
+}
+
+.input-box-login{
+  width: 100%;
+  height: 40px !important;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 5px;
+  position: relative;
+  z-index: 1;
+  transition: border-color .1s;
+  font-size: 18px;
+  margin: 5px 0;
+  display:flex;
+  align-content: flex-start;
+}
+
+.input-box-login span{
+  margin: 0 5px;
+}
+
+.input-box-login-pass{
+  width: 92%;
+  height: 40px !important;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+  transition: border-color .1s;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.create-account{
+  display:block;
+  font-size: 32px;
+  margin-bottom: 40px 0;
+  margin-top: 20px 0;
+  text-align: center;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.input-box-signup{
+    width: 100%;
+  height: 40px !important;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 5px;
+  position: relative;
+  z-index: 1;
+  transition: border-color .1s;
+  font-size: 18px;
+  margin: 10px 0;
+  display:flex;
+  align-content: flex-start;
+
+}

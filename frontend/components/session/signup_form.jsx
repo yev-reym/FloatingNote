@@ -26,8 +26,7 @@ class SignUpForm extends React.Component {
     // }
 
     handlePath() {
-     
-        this.props.closeModal();
+        this.setState({ formStage: "display-name" });
         this.props.history.push('/discover');
     }
 
@@ -35,16 +34,15 @@ class SignUpForm extends React.Component {
         e.preventDefault();
         if (this.state.formStage === 'password') {
           
-            return this.setState({formStage: "gender"});
+           this.setState({formStage: "gender"});
         } else if (this.state.formStage === "gender") {
             const {age, gender, password, username, email} = this.state;
             const user = {age, gender, password, email, username};
-            debugger
-            this.props.signup(user).then(this.handlePath());
+            this.props.signup(user).then(this.handlePath);
         } else {
-          
+            debugger
             //update user username field
-            return this.props.closeModal();
+            this.props.closeModal();
         }
     }
 
@@ -69,7 +67,7 @@ class SignUpForm extends React.Component {
                 return (
                     <>
                         <form onSubmit={this.handleSubmit} className="modal-form">
-                            <h2>Create your FloatingNote account</h2>
+                            <h1 className='create-account'>Create your FloatingNote account</h1>
                             {/* {this.renderErrors()} */}
                             <div className="signup-form">
 
@@ -79,8 +77,9 @@ class SignUpForm extends React.Component {
                                     this.props.closeModal()
                                     this.props.returnForm('checkInfo')
                                 }}
-                                    className="input-box post-info-check"
-                                ><span>&#9668;  {this.state.info.email </span> </button>
+                                    form=''
+                                    className="input-box-signup"
+                                ><span>&#9668; </span> <span>{this.state.email} </span> </button>
 
                                 <label className="required-field">
                                     Choose a password
@@ -92,7 +91,13 @@ class SignUpForm extends React.Component {
                                     />
                                 </label>
 
+                                <p>By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
+
                                 <input className="submit-button" type="submit" value="Accept & Continue" />
+
+                               <h3>Are you trying to sign in?</h3> 
+                               <p>The email address that you entered was not found.
+                                Double-check your email address.</p> 
                             </div>
                         </form> </>
                 );
@@ -108,6 +113,7 @@ class SignUpForm extends React.Component {
                                     Tell us your age
                         <input type="text"
                                         autoFocus
+                                        form=''
                                         value={this.state.age}
                                         onChange={this.update('age')}
                                         className="input-box"
@@ -119,7 +125,7 @@ class SignUpForm extends React.Component {
                                 <label className="required-field">
                                    Gender
                         <select onChange={this.update('gender')}>
-                                    <option value="" selected disabled hidden>--Indicate your gender--</option>
+                                    <option defaulValue="Indicate your gender">Indicate your gender</option>
                                     <option value="Female">Female</option>
                                     <option value="Male">Male</option>
                                     <option value="Prefer not to say">Prefer not to say</option>
@@ -131,6 +137,7 @@ class SignUpForm extends React.Component {
                         </form>
                     )
             case 'display-name':
+                debugger
                 return (
 
                     <form onSubmit={this.handleSubmit} className="modal-form">
@@ -158,7 +165,7 @@ class SignUpForm extends React.Component {
     }
 
     render() {
-      
+    
      return this.formTypeHandler();
     }
    
