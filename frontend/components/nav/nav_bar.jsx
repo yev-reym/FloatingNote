@@ -14,7 +14,7 @@ class NavBar extends React.Component {
         if (this.props.currentUser) {
             <nav className="nav-bar">
                 <NavLink className="nav-button nav-bar-logo" to='/'>
-                    <figure className="cloud-logo">
+                    <figure className="signed-in-cloud">
                         <img src={window.nav_logo} className="cloud-logo-item" />
                     </figure>
                 </NavLink>
@@ -59,7 +59,7 @@ class NavBar extends React.Component {
 
     render(){
         return (
-            <div>NavBar</div>
+            this.toggleNavByUser()
         );
     }
 }
