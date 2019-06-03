@@ -56,16 +56,16 @@ export const signup = user => dispatch => {
         return dispatch(receiveCurrentUser(user));
     },
     err => {
-        
         dispatch(receiveSessionErrors(err.responseJSON));
-        });
+    });
 };
 
-export const login = user => dispatch => (
-    SessionAPIUtil.login(user).then(user => dispatch(receiveCurrentUser(user),
-        err => dispatch(receiveSessionErrors(err.responseJSON))))
-);
-
+export const login = user => dispatch => {
+    return SessionAPIUtil.login(user).then(user => dispatch(receiveCurrentUser(user)),
+        err => {
+            dispatch(receiveSessionErrors(err.responseJSON));
+        });
+};
 
 export const logout = () => dispatch => (
     SessionAPIUtil.logout().then(() => dispatch(logoutCurrentUser(null),

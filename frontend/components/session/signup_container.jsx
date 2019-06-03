@@ -8,19 +8,15 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
     const {info,formStage} = ownProps;
     return {
-        errorsSession: state.errors.session,
-        errorsInfo: state.errors.pendingInfo,
         exists: state.ui.pendingInfo.exists,
-        info: { age: '', gender: '', password: '', email: info, username: null, formStage},
+        info: { age: '', gender: '', password: '', email: info, username: '',
+        errorsPassword: [], errorsAge: [], errorsGender: [], errorsUsername: [], formStage}
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        returnForm: (type) => dispatch(openModal(type)),
         closeModal: () => dispatch(closeModal()),
-        confirmInfo: (info) => dispatch(confirmInfo(info)),
-        login: (user) => dispatch(login(user)),
         signup: (user) => dispatch(signup(user)),
         logout: () => dispatch(logout()),
         updateUsername: (user) => dispatch(updateUsername(user))

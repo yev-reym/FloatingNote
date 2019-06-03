@@ -1,4 +1,4 @@
 
 
 
-json.extract! user, :email, profile_url, gender, age, id
+json.extract! user, :email, :profile_url, :gender, :age, :id

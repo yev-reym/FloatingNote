@@ -4,7 +4,7 @@ import { login, logout, confirmInfo, clearErrors } from '../../actions/auth_acti
 import {closeModal, openModal} from '../../actions/modal_actions';
 import LoginForm from './login_form';
 import SignUpContainer from './signup_container';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 
 
 const mapStateToProps = (state) => {
@@ -37,6 +37,14 @@ class PendingInfoForm extends React.Component {
         this.update = this.update.bind(this);
         this.handleForm = this.handleForm.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+    }
+
+    handleDemo(){
+        this.props.login({info:'user@demo.com', password:'password123'});
+        this.props.history.push('/discover');
+        // <Link to='/discover' />
+        this.props.closeModal();
     }
 
     update() {
@@ -70,7 +78,7 @@ class PendingInfoForm extends React.Component {
 
     handleForm(){
         if (this.props.exists === true) {
-            return <LoginForm errorsSession={this.props.errorsSession} info={this.state.info} history={this.props.history} login={this.props.login} closeModal={this.props.closeModal} processForm={this.props.processForm} returnForm={this.props.returnForm}/>;
+            return <LoginForm clearErrors={this.props.clearErrors} errorsSession={this.props.errorsSession} info={this.state.info} history={this.props.history} login={this.props.login} closeModal={this.props.closeModal} processForm={this.props.processForm} returnForm={this.props.returnForm}/>;
         } else if (this.props.exists === false) {
             return <SignUpContainer  info={this.state.info} formStage={'password'} />;
         } else {
@@ -79,7 +87,7 @@ class PendingInfoForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="modal-form">
                     <div className="info-form-container">
                     
-                        <button form="" className="button button-large modal-demo-login"> Continue with Demo Login</button>
+                        <button id='demo' form="" className="button button-large modal-demo-login" onClick={this.handleDemo}> Continue with Demo Login</button>
                         <h2 className="divider"><span>or</span></h2>
 
                         <input type="text" className={`input-box ${errorStyle}`} onChange={this.update()} placeholder="Your email address of profile URL *" value={this.state.info} />

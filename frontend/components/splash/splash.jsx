@@ -5,11 +5,17 @@ class Splash extends React.Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
 
     handleClick(){
          this.props.openModal('checkInfo');
+    }
+
+    handleDemo(){
+            const signIn = document.getElementById('signin');
+            signIn.click();
     }
 
     render(){
@@ -27,7 +33,7 @@ class Splash extends React.Component {
                        
                         <div className="carousel-nav">
 
-                        <button className="buttons signin" onClick={this.handleClick}>Sign in</button>
+                        <button id='signin' className="buttons signin" onClick={this.handleClick}>Sign in</button>
 
                         <button className="buttons signup" onClick={this.handleClick}>Create account</button>
 
@@ -40,7 +46,7 @@ class Splash extends React.Component {
                         <section className="carousel-mid">
                             <h1>Discover more with SoundCloud Go+</h1>
                             <p>SoundCloud Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</p> 
-                            <button className="buttons demo-button">Try it free!</button>
+                            <button className="buttons demo-button" onClick={this.handleDemo}>Try it free!</button>
                         </section>
 
                     </section>
