@@ -1,75 +1,176 @@
-html {
-    height: 100%;
-    overflow-x: scroll;
-}
-body {
-    height: 100%
-}
-
-#root{
-    overflow-y: scroll;
-    background-color: #f2f2f2;
-    padding-bottom: 75px;
-    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    display: block;
-    height: 100%;
-}
 
 .splash-app{
     width: 1240px;
+    height: 100%;
     margin: 0 auto;
 }
 
-.top-banner{
+.carousel{
  color: #fff;
  position: relative;
  border-top: 4px solid #f50;
- background-color: #666;
  height: 450px;
- display: block;
+ background-image: url('carousel_demo_image.png');
  width: 100%;
  margin: 0 auto;
+ min-height: 450px;
 }
 
-.carousel{
-    width: 100%;
-    height: 100%;
-    background-image: url('carousel_demo_image.png');
-    float:left;
+.carousel-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.carousel-container{
-
-}
-
-.buttons{
+.carousel-nav{
     display:flex;
     justify-content: flex-end;
     font-size: 14px;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
     text-align: center;
     box-sizing: border-box;
-    background: green;
     flex-wrap: nowrap;
     align-items: center;  
 }
 
+.buttons{
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box
+}
+textarea, select, button, input {
+    font-family: inherit;
+    color: #333;
+}
+
+
+.buttons:hover{
+     cursor: pointer;
+}
+
+button:focus {outline:0;}
 
 .signin{
-    cursor: pointer;
-    margin: 6px;
+    padding: 2px 11px 2px 10px;
+    height: 30px;
+    line-height: 24px;
+    transition: opacity .2s linear;
+    background: 0 0;
+    color: #fff;
+    border-color: #ccc;
+    text-align: center;
+    vertical-align: baseline;
+    border: 1px solid #e5e5e5;
 }
 
 .signup{
-    cursor: pointer;
-    margin: 6px;
+    margin-right: 25px;
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    padding: 2px 11px 2px 10px;
+    height: 30px;
+    line-height: 24px;
+    border: none;
+    background: #f50;
 }
 
+.demo-button{
+    height: 46px;
+    background: #f50;
+    border: none;
+    font-size: 18px;
+    min-width: 210px;
+    line-height: 46px;
+    padding-top: 0;
+    padding-bottom: 0;
+    white-space: nowrap;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    color: #fff;
+}
 
+.cloud-logo{
+    margin: 10px 32px;
+    position:relative;
+}
+
+.cloud-logo-item{
+    height: 22px;
+    width: 48px;
+    position:absolute;
+}
+
+.cloud-logo:after{
+    content:"FLOATINGNOTE"; 
+    color: #fff;
+    position:absolute;
+    left: 55px;
+    top: 2px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.carousel-nav{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.carousel-mid {
+   display:block;
+}
+
+ .carousel-mid h1 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 8px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    width: 700px;
+ }
+
+ .carousel-mid p {
+    color: white;
+    margin-bottom: 26px;
+    font-size: 18px;
+    max-width: 530px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    line-height: 25px;
+ }
+
+ .carousel-information{
+    display:flex;
+    justify-content: center;
+    width: 530px;
+    margin: 8% auto;
+    text-align: center;
+
+ }
 
 
 

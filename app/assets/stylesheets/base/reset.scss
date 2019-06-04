@@ -17,10 +17,12 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
     line-height:1;
+    -webkit-font-smoothing: antialiased;
 }
 
 article,aside,details,figcaption,figure,
@@ -30,6 +32,39 @@ footer,header,hgroup,menu,nav,section {
 
 nav ul {
     list-style:none;
+}
+
+ul{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #CCCCCC;
+}
+
+a:hover {
+   color: #ffffff;
+}
+
+input:focus{
+    outline: none;
+}
+
+button:focus{
+    outline: none;
+}
+
+button{
+    user-select: none;
+}
+
+a{
+    user-select:none;
+}
+
+select:focus{
+    outline: none;
 }
 
 blockquote, q {
@@ -50,30 +85,6 @@ a {
     background:transparent;
 }
 
-/* change colours to suit your needs */
-ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
-}
-
-/* change colours to suit your needs */
-mark {
-    background-color:#ff9;
-    color:#000; 
-    font-style:italic;
-    font-weight:bold;
-}
-
-del {
-    text-decoration: line-through;
-}
-
-abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
-}
-
 table {
     border-collapse:collapse;
     border-spacing:0;
@@ -90,4 +101,9 @@ hr {
 }
 
 input, select {
-    vertical-align:middle;}
+    vertical-align:middle;
+}
+
+::placeholder{
+    font: 12px/1.5 "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}

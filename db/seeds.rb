@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+admin_user = User.create!({username:'demo_user', email:'user@demo.com', age: 22, gender:'female', profile_url:'floatingnote.herokuapp/demo_user', password:'password123'})

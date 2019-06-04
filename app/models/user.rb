@@ -1,11 +1,11 @@
 class User < ApplicationRecord
     validates :username, :password_digest, :session_token, :age, :gender, :email, :profile_url, presence: true
-    validates :username, :session_token, :email, :profile_url, uniqueness: true
+    validates :session_token, :email, :profile_url, uniqueness: true
     validates :password, length: {minimum: 6}, allow_nil: true
-    validates_email_format_of :email
+    # validates_email_format_of :email
 
     attr_reader :password 
-    after_initialize :ensure_session_token, :ensure_profile_url
+    after_initialize :ensure_session_token, :ensure_profile_url_and_username
 
     def password=(password)
         @password = password
@@ -16,8 +16,8 @@ class User < ApplicationRecord
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
-    def self.find_by_credentials(email, password)
-        user = User.find_by(email: email)
+    def self.find_by_credentials(info, password)
+        user = User.find_by(email: info) || User.find_by(profile_url: info)
         return nil unless user && user.is_password?(password)
         user
     end
@@ -32,17 +32,13 @@ class User < ApplicationRecord
         SecureRandom::urlsafe_base64
     end
 
-    def self.generate_profile_url
-        'floatingnote.herokuapp/user-' + rand.to_s[2..18]
-    end
-
-    private
-
     def ensure_session_token
         self.session_token ||= self.class.generate_session_token
     end
 
-    def ensure_profile_url
-        self.profile_url ||= self.class.generate_profile_url
+    def ensure_profile_url_and_username
+        rand_num = rand.to_s[2..18]
+        self.profile_url ||= 'floatingnote.herokuapp/user-' + rand_num
+        self.username ||= 'user-' + rand_num
     end
 end
