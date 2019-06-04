@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {login,logout} from './actions/auth_actions';
 import {signup,infoCheck} from './utils/users_api_util';
+import { fetchTracks, fetchTrack, createTrack, updateTrack } from './utils/tracks_api_util';
 import configureStore from './store/store';
 import Root from './components/Root';
 
