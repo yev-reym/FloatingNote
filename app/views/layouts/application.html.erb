@@ -4,12 +4,13 @@
     <title>FloatingNote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
      <script type="text/javascript">
       window.logo = "<%= image_url('actual-cloud-logo.png').html_safe %>"
-      window.nav_logo = "<%= image_url('cloud-nav-logo.png').html_safe %>"
+      window.options = "<%= image_url('options_icon.png').html_safe %>"
+      window.glass = "<%= image_url('magnifying_glass.png').html_safe %>"
     </script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>

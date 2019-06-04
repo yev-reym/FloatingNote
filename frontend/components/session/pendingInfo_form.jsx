@@ -42,8 +42,7 @@ class PendingInfoForm extends React.Component {
 
     handleDemo(){
         this.props.login({info:'user@demo.com', password:'password123'});
-        this.props.history.push('/discover');
-        // <Link to='/discover' />
+        <Link to='/discover' />;
         this.props.closeModal();
     }
 
