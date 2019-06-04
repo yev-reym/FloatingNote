@@ -67,6 +67,9 @@ class NavBar extends React.Component {
                 </form>
                 <a className='upload'>Upload</a>
                 <a className='nav-button profile'><span>{this.props.currentUser.username}</span></a>
+                <div className="drop-down-notification">
+                    <img onClick={this.handleDropDown} src={window.notifications} className={`bell-icon ${this.state.droppedDown ? 'open' : null}`} />
+                </div>
                 <div className="drop-down">
                     <img onClick={this.handleDropDown} src={window.options} className={`options-icon ${this.state.droppedDown ? 'open' : null}`} />
                     <NavLink to="/logout" onClick={this.handleLogout} className={`${this.state.droppedDown ? 'show' : 'hidden'}`}>Sign out</NavLink>

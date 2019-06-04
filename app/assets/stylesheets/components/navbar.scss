@@ -108,7 +108,7 @@
 .upload{
     color: #ccc;
     display: block;
-    padding: 16px 10px 12px;
+    padding: 12px 10px 12px;
     float: left;
     text-align:center;
     box-sizing: border-box;
@@ -130,7 +130,7 @@
 
 .options-icon{
     position: absolute;
-    top: -27%;
+    top: -20%;
     left: -1%;
     background: transparent;
     padding-bottom: 12px;
@@ -187,6 +187,28 @@
 
 .profile{
     padding: 12px 28px 12px 10px;
+    position: relative;
+    border: none;
+}
+
+.bell-icon{
+    position: absolute;
+    top: 24%;
+    left: 22%;
+    background: transparent;
+    padding-bottom: 12px;
+    height: 52%;
+}
+
+.drop-down-notification{
+    width: 46px;
+    height: 46px;
+    border: 0;
+    box-sizing: border-box; 
+    text-align: center;
+    display: block;
+    padding: 12px 0;
+    background-position: center;
     position: relative;
 }
 
