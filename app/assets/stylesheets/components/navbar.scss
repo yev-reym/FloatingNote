@@ -192,12 +192,12 @@
 }
 
 .control-overflow{
-    display:block;
-    overflow: hidden;
+    width: fit-content;
 }
 
 .clicked{
     color: #fff;
+    background: #111;
 }
 
 // .bell-icon{

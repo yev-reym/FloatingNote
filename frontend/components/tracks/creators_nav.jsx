@@ -5,9 +5,9 @@ export default (props) => {
     return (
         <nav className='creator-nav-container'>
             <ul className="tab-container" >
-                <NavLink to='/upload' className="" activeClassName="clicked-tab">Upload</NavLink>
-                <NavLink to='/you/tracks' activeClassName="clicked-tab">Your Tracks</NavLink>
-                <NavLink to={`/${props.profile_url}/stats`} activeClassName="clicked-tab">Stats</NavLink>
+                <NavLink  activeClassName="active-tab" to='/upload'>Upload</NavLink>
+                <NavLink to='/you/tracks' activeClassName="active-tab">Your Tracks</NavLink>
+                <NavLink to={`/${props.profile_url}/stats`} activeClassName="active-tab">Stats</NavLink>
             </ul>
         </nav>
       

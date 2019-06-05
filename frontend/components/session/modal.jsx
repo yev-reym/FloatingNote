@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginForm from './login_form';
 import SignupForm from './signup_form';
 import PendingInfoForm from './pendingInfo_form';
+import DropModal from '../tracks/drop_modal';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -20,6 +21,8 @@ function Modal({modal, closeModal}) {
     case 'signup':
       component = <SignupForm />;
       break;
+    case 'drop':
+      component = <DropModal />;
     default:
       return null;
   }
