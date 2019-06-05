@@ -30,11 +30,11 @@ class TrackForm extends React.Component {
                 <>
                 <main className="main-page-container background-picture-container">
 
-                <section className='image-container'>
+                
 
                 <CreatorsNav className='creators-nav' profile_url={this.props.currentUser.profile_url}/>
 
-                
+                <section className='image-container'>
 
                 <div className='upload-form-container'>
 
