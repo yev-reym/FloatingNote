@@ -1,9 +1,26 @@
 
-// @media (max-width: 1239px){
-//     .creator-nav-container{
-//         width: 1020px;
-//     }
-// }
+@media (max-width: 1239px){
+    .creator-nav-container{
+        width: 1020px;
+    }
+}
+
+.tab-container a{
+    cursor: pointer;
+    color: #333;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
+    text-align: center;
+}
+
+.tab-container a:hover{
+    border-bottom: 1px solid  #333;;
+}
+
+.tab-container{
+    display: flex;
+    justify-content: space-evenly;
+}
 
 input[type='file'] {
   opacity:0    
@@ -16,8 +33,17 @@ input[type='file'] {
     height: 100%
 }
 
-.creators-nav{
+.creator-nav-container{
     position: absolute;
+    min-height: 48px;
+    line-height: 48px;
+    font-weight: 100;
+    top: 46px;
+    width: 1240px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 30px;
+    box-sizing: border-box;
 }
 
 .upload-form-container{
@@ -25,3 +51,29 @@ input[type='file'] {
     position:absolute;
     top: 100px;
 }
+
+.clicked-nav{
+    border-color: #f50;
+    color: #f50;
+}
+
+.upload-form-container{
+    flex-direction: column;
+    margin: 0 auto;
+    border-radius: 2px;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+    border: 1px solid #f2f2f2;
+    height: 460px;
+    width: 800px;
+}
+
+.image-container{
+    background-image: url('MLB_background.jpg');
+    position: absolute;
+    width: 1240px;
+    height: 100%;
+}
+
