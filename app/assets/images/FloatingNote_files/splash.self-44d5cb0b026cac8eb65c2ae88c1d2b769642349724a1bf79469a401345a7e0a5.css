@@ -1,0 +1,192 @@
+/* line 2, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.splash-app {
+  width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* line 8, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel {
+  color: #fff;
+  position: relative;
+  border-top: 4px solid #f50;
+  height: 450px;
+  background-image: url("carousel_demo_image.png");
+  width: 100%;
+  margin: 0 auto;
+  min-height: 450px;
+}
+
+/* line 19, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 25, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-nav {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  text-align: center;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* line 35, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.buttons {
+  display: inline-block;
+  position: relative;
+  height: 26px;
+  margin: 0;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* line 55, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+textarea, select, button, input {
+  font-family: inherit;
+  color: #333;
+}
+
+/* line 61, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.buttons:hover {
+  cursor: pointer;
+}
+
+/* line 65, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+button:focus {
+  outline: 0;
+}
+
+/* line 67, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.signin {
+  padding: 2px 11px 2px 10px;
+  height: 30px;
+  line-height: 24px;
+  transition: opacity .2s linear;
+  background: 0 0;
+  color: #fff;
+  border-color: #ccc;
+  text-align: center;
+  vertical-align: baseline;
+  border: 1px solid #e5e5e5;
+}
+
+/* line 80, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.signup {
+  margin-right: 25px;
+  background-color: #f50;
+  border-color: #f50;
+  color: #fff;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  padding: 2px 11px 2px 10px;
+  height: 30px;
+  line-height: 24px;
+  border: none;
+  background: #f50;
+}
+
+/* line 95, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.demo-button {
+  height: 46px;
+  background: #f50;
+  border: none;
+  font-size: 18px;
+  min-width: 210px;
+  line-height: 46px;
+  padding-top: 0;
+  padding-bottom: 0;
+  white-space: nowrap;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  color: #fff;
+}
+
+/* line 111, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.cloud-logo {
+  margin: 10px 32px;
+  position: relative;
+}
+
+/* line 116, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.cloud-logo-item {
+  height: 22px;
+  width: 48px;
+  position: absolute;
+}
+
+/* line 122, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.cloud-logo:after {
+  content: "FLOATINGNOTE";
+  color: #fff;
+  position: absolute;
+  left: 55px;
+  top: 2px;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+}
+
+/* line 133, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 25px;
+}
+
+/* line 140, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-mid {
+  display: block;
+}
+
+/* line 144, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-mid h1 {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 8px;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  width: 700px;
+}
+
+/* line 153, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-mid p {
+  color: white;
+  margin-bottom: 26px;
+  font-size: 18px;
+  max-width: 530px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  line-height: 25px;
+}
+
+/* line 166, /Users/aa/Desktop/FloatingNote/app/assets/stylesheets/components/splash.scss */
+.carousel-information {
+  display: flex;
+  justify-content: center;
+  width: 530px;
+  margin: 8% auto;
+  text-align: center;
+}

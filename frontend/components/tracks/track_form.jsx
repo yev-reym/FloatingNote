@@ -20,6 +20,7 @@ class TrackForm extends React.Component {
         }
 
         handleFile(e){
+            e.preventDefault();
             const track = e.target.files[0];
             this.setState({track_file: track, title: track.name});
             
@@ -53,7 +54,7 @@ class TrackForm extends React.Component {
 
                 <CreatorsNav className='creator-nav' profile_url={this.props.currentUser.profile_url}/>
 
-                            <section className='background-image-container'>
+                <section className='background-image-container'>
 
                 <div className='upload-form-container'>
 
@@ -61,16 +62,16 @@ class TrackForm extends React.Component {
                 <form className="upload-form">
                     <h1 className='title'>Drag and drop your tracks & albums here</h1 >
 
-                    <label className='submit-button drag-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handleFile}>
+                                        <label className='submit-button drag-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragExit={e => e.preventDefault()} onChange={this.handleFile}>
                         or choose files to upload
                         <input className="label-input" type='file' /> 
                     </label>
                     
                     <label id='privacy-label' htmlFor="privacy">
                         Privacy:
-                    <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handlePrivate(false)} value="Public" />
+                    <input form='' className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handlePrivate(false)} value="Public" />
                     <span>Public</span>
-                    <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handlePrivate(true)} value="Private" />
+                    <input form='' className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handlePrivate(true)} value="Private" />
                     <span>Private</span>
                     </label>
                   
@@ -103,11 +104,11 @@ class TrackForm extends React.Component {
                     <>
                     <main className="main-page-container">
 
-
-
                     <CreatorsNav className='dropped-creator-nav' profile_url={this.props.currentUser.profile_url} />
 
-                    <div className='upload-form-container form-when-dropped'>
+                    <div className='form-parent-container'>
+
+                        <div className='upload-form-container form-when-dropped'>
 
 
                         <form className="upload-form">
@@ -120,26 +121,33 @@ class TrackForm extends React.Component {
                             <aside>Provide FLAC, WAV, ALAC or AIFF for best audio quality.</aside>
                         </form>
 
-                        <div className='terms-use re-upload'>
-                            Upload as FLAC, WAV, ALAC or AIFF for best audio quality.
-                           <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handleFile}>
-                                Replace file
-                            <input className="label-input" type='file' />
-                            </label>
+                     <div className='terms-use re-upload'>
+                        Upload as FLAC, WAV, ALAC or AIFF for best audio quality.
+                        <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handleFile}>
+                            Replace file
+                        <input className="label-input" type='file' />
+                        </label>
+                    </div>
+
+                    </div>
+
+                    
+                     <div className='upload-info'>
+
+                        <div className="p-bar-container">
+                            <p >{this.state.title}</p>
+                            <p >Ready. Click Save to post this track.</p>
                         </div>
-                     </div>
-                     <div>
+                        <div className="p-bar-container">
+                            <p className='p-bar-left'></p>
+                            <p className='p-bar-right'></p>
+                        </div>
 
-                         <div className="p-bar-container">
-                            <span className='p-bar-left'>{this.state.title}</span>
-                            <p className='p-bar-right'>Ready. Click Save to post this track.</p>
-                         </div>
-
-                        <form className="upload-form-container">
+                        <form className="upload-form-container fill-in-form">
                         
                             <label id='privacy-label' htmlFor="privacy">
                                 Privacy:
-                    <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handleInput} value="Public" />
+                        <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handleInput} value="Public" />
                                 <span>Public</span>
                                 <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handleInput} value="Private" />
                                 <span>Private</span>
@@ -152,10 +160,12 @@ class TrackForm extends React.Component {
     
                      </div>
            
-                            <div className='terms-use'>
-                                By uploading, you confirm that your sounds comply
-                                with our Terms of Use and you don't infringe anyone else's rights.
-                            </div>
+                    <div className='terms-use'>
+                        By uploading, you confirm that your sounds comply
+                        with our Terms of Use and you don't infringe anyone else's rights.
+                    </div>
+
+                    </div>            
 
                     </main>
                      </>
