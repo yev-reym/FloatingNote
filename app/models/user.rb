@@ -43,7 +43,7 @@ class User < ApplicationRecord
 
     def ensure_profile_url_and_username
         rand_num = rand.to_s[2..18]
-        self.profile_url ||= 'floatingnote.herokuapp/user-' + rand_num
         self.username ||= 'user-' + rand_num
+        self.profile_url ||= 'user-' + rand_num
     end
 end

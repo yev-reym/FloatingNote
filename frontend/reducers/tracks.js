@@ -1,14 +1,22 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER } from '../actions/auth_actions';
+import { RECEIVE_TRACK, RECEIVE_TRACKS, EDIT_TRACK, REMOVE_TRACK} from '../actions/track_actions';
 import { merge } from 'lodash';
 
 
-const tracksReducer = (state = {}, action) => {
-    Object.freeze(state);
+const tracksReducer = (oldState = {}, action) => {
+    Object.freeze(oldState);
     switch (action.type) {
-        case RECEIVE_CURRENT_USER:
-            return null;
+        case RECEIVE_TRACKS:
+            return merge({}, oldState, action.tracks);
+        case RECEIVE_TRACK:
+            return merge({}, oldState, {[action.track.id]: action.track});
+        case EDIT_TRACK:
+            return merge({}, oldState, { [action.track.id]: action.track });
+        case REMOVE_TRACK:
+            const newState = merge({},oldState);
+            delete newState[action.trackId];
+            return newState;
         default:
-            return state;
+            return oldState;
     }
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {login,logout} from './actions/auth_actions';
 import {signup,infoCheck} from './utils/users_api_util';
-import { fetchTracks, fetchTrack, createTrack, updateTrack } from './utils/tracks_api_util';
+import { fetchTracks, fetchTrack, uploadTrack, updateTrack, fetchTracksByUser } from './utils/tracks_api_util';
 import configureStore from './store/store';
 import Root from './components/Root';
 
@@ -25,7 +25,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.infoCheck = infoCheck;
     window.store = store;
     window.dispatch = store.dispatch;
-
+    window.fetchTracks = fetchTracks;
+    window.fetchTrack = fetchTrack;
+    window.uploadTrack = uploadTrack;
+    window.updateTrack = updateTrack;
+    window.fetchTracksByUser = fetchTracksByUser;
     //
 
     ReactDOM.render(<Root store={store}/>, root);

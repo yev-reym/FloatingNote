@@ -1,8 +1,13 @@
 class Api::TracksController < ApplicationController
 
     def index
-        @tracks = Track.all 
-        render :index
+        if params[:user]
+            @tracks = User.find_by(email: params[:user][:email]).tracks
+            render :index
+        else 
+            @tracks = Track.all 
+            render :index
+        end
     end
     
     def create 
@@ -22,17 +27,18 @@ class Api::TracksController < ApplicationController
             render :show
         else 
             render @track.full_messages.errors, status: 422
+        end
     end
 
     def destroy
         @track.find_by(id: params[:track][:id])
         @track.destroy 
-        render json: {}
+        render json: {id: @track.id }
     end
 
     private 
 
     def track_params
-        params.require(:track).permit(:title,:genre,:private,:uploader_id)
+        params.require(:track).permit(:title,:genre,:private, :tags, :uploader_id, :track_file)
     end
 end
