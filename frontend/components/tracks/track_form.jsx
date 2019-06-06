@@ -9,6 +9,7 @@ class TrackForm extends React.Component {
             this.handleFile = this.handleFile.bind(this);
             this.handleFormRender = this.handleFormRender.bind(this);
             this.handlePrivate = this.handlePrivate.bind(this);
+            this.renderErrorsTitle = this.renderErrorsTitle.bind(this);
         }
 
         handlePrivate(boolean){
@@ -29,13 +30,33 @@ class TrackForm extends React.Component {
         handleUploadClick(e){
                 e.preventDefault();
                 const formData = new FormData();
-                formData.append('track[title]', this.state.title);
+                if (this.state.title.length === 0){
+                    this.setState({errorsTitle: ['Enter a title.']});
+                } else {
+                    formData.append('track[title]', this.state.title);
+                }
                 formData.append('track[private]', this.state.private);
                 formData.append('track[genre]', this.state.genre);
                 formData.append('track[track_file]', this.state.track_file);
                 formData.append('track[uploader_id]', this.props.currentUser.id);
                 this.props.upload(formData);
         }
+
+        renderErrorsTitle() {
+            return (
+                <ul>
+                    {this.state.errorsTitle.map((error, i) => (
+                        <li className='errors' key={`error-${i}`}>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
+            );
+        } 
+
+        // parseFileName(){
+
+        // }
 
         // handleDragEnter(e){
         //     e.preventDefault();
@@ -144,15 +165,45 @@ class TrackForm extends React.Component {
                         </div>
 
                         <form className="upload-form-container fill-in-form">
-                        
-                            <label id='privacy-label' htmlFor="privacy">
-                                Privacy:
-                        <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handleInput} value="Public" />
-                                <span>Public</span>
-                                <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handleInput} value="Private" />
-                                <span>Private</span>
+
+                        <nav className='creator-nav-container basic-info-container'>
+                            <ul className="tab-container basic-info" >
+                                <span className="active-tab basic-info-tab">Basic info</span>
+                            </ul>
+                        </nav>
+
+                        <section className='info-container'>
+                            <label className='required-field'>
+                                Title
+                            <input type="text" className='' value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
+                            </label>
+                            {this.renderErrorsTitle()}
+
+                            <label className='required field'>
+                                Genre
+                            <input type="text" className='' value='' onChange={this.handleInput('genre')} />
                             </label>
 
+                            <label className='required field'>
+                                Additional Tags
+                            <input type="text" className='' onChange={this.handleInput('tags')} placeholder="Add tags to describe the genre and mood of your track" />
+                            </label>
+
+                            <label className=''>
+                                Description
+                            <textarea onChange={this.handleInput('description')} className='required field' placeholder="Describe your track"></textarea>
+                            </label>
+
+                        <label id='privacy-label' htmlFor="privacy">
+                            Privacy:
+                        <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handleInput} value="Public" />
+                        <span>Public</span>
+                        <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handleInput} value="Private" />
+                        <span>Private</span>
+                        </label>
+                            
+
+                        </section>
 
                             <aside>Provide FLAC, WAV, ALAC or AIFF for best audio quality.</aside>
 

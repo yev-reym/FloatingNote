@@ -6,7 +6,7 @@ import {openModal, closeModal} from '../../actions/modal_actions';
 const mapStateToProps = ({session}) => {
     return {
         currentUser: session.currentUser,
-        track: {title:'', genre:'', private: false, tags: '', track_file: null, }
+        track: {title:'', genre:'', private: false, tags: '', track_file: null, errorsTitle: [] }
     };
 };
 
