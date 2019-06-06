@@ -67,6 +67,14 @@ select:focus{
     outline: none;
 }
 
+textarea:focus{
+    outline:none;
+}
+
+textarea{
+    resize: vertical;
+}
+
 blockquote, q {
     quotes:none;
 }

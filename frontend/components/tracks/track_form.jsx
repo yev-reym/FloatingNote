@@ -172,24 +172,24 @@ class TrackForm extends React.Component {
                             </ul>
                         </nav>
 
-                        <section className='info-container'>
-                            <label className='required-field'>
+                        <section className='info-container upload-info-form'>
+                            <label className='required-field form-field'>
                                 Title
-                            <input type="text" className='' value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
+                            <input type="text" className='field' value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
                             </label>
                             {this.renderErrorsTitle()}
 
-                            <label className='required field'>
+                            <label className='required-field form-field'>
                                 Genre
-                            <input type="text" className='' value='' onChange={this.handleInput('genre')} />
+                            <input type="text" className='field' value='' onChange={this.handleInput('genre')} />
                             </label>
 
-                            <label className='required field'>
+                            <label className='required-field form-field'>
                                 Additional Tags
-                            <input type="text" className='' onChange={this.handleInput('tags')} placeholder="Add tags to describe the genre and mood of your track" />
+                            <input type="text" className='field' onChange={this.handleInput('tags')} placeholder="Add tags to describe the genre and mood of your track" />
                             </label>
 
-                            <label className=''>
+                            <label className='required-field form-field'>
                                 Description
                             <textarea onChange={this.handleInput('description')} className='required field' placeholder="Describe your track"></textarea>
                             </label>

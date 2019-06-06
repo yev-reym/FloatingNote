@@ -287,7 +287,7 @@ input[type="radio"]:checked:before {
     background: #fff;
     line-height: normal;
 
-     border-radius: 5px;
+    border-radius: 5px;
     position: relative;
     z-index: 1;
     transition: border-color .1s;
@@ -302,6 +302,15 @@ input[type="radio"]:checked:before {
     justify-content: space-evenly;
     align-items: flex-end;
 }
-// .dropped-creator-nav{
-//     border-bottom: 1px solid #f2f2f2;
-// }
+
+.form-field{
+    text-align: left;
+    font-size: 12px;
+    width: 470px;
+    margin: 25px 0px;
+}
+
+.upload-info-form{
+    position: absolute;
+    top: 60px;
+}
