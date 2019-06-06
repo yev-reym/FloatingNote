@@ -10,6 +10,7 @@ class TrackForm extends React.Component {
             this.handleFormRender = this.handleFormRender.bind(this);
             this.handlePrivate = this.handlePrivate.bind(this);
             this.renderErrorsTitle = this.renderErrorsTitle.bind(this);
+            this.handleUpload = this.handleUpload.bind(this);
         }
 
         handlePrivate(boolean){
@@ -27,7 +28,7 @@ class TrackForm extends React.Component {
             
         }
 
-        handleUploadClick(e){
+        handleUpload(e){
                 e.preventDefault();
                 const formData = new FormData();
                 if (this.state.title.length === 0){
@@ -88,7 +89,7 @@ class TrackForm extends React.Component {
                         <input className="label-input" type='file' /> 
                     </label>
                     
-                    <label id='privacy-label' htmlFor="privacy">
+                    <label  htmlFor="privacy">
                         Privacy:
                     <input form='' className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handlePrivate(false)} value="Public" />
                     <span>Public</span>
@@ -164,7 +165,7 @@ class TrackForm extends React.Component {
                             <p className='p-bar-right'></p>
                         </div>
 
-                        <form className="upload-form-container fill-in-form">
+                        <form className="upload-form-container fill-in-form" onSubmit={this.handleUpload}>
 
                         <nav className='creator-nav-container basic-info-container'>
                             <ul className="tab-container basic-info" >
@@ -174,14 +175,14 @@ class TrackForm extends React.Component {
 
                         <section className='info-container upload-info-form'>
                             <label className='required-field form-field'>
-                                Title
+                                <span> Title</span>
                             <input type="text" className='field' value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
                             </label>
                             {this.renderErrorsTitle()}
 
                             <label className='required-field form-field'>
                                 Genre
-                            <input type="text" className='field' value='' onChange={this.handleInput('genre')} />
+                             <input type="text" className='field' onChange={this.handleInput('genre')} placeholder="Genre" />
                             </label>
 
                             <label className='required-field form-field'>
@@ -196,25 +197,41 @@ class TrackForm extends React.Component {
 
                         <label id='privacy-label' htmlFor="privacy">
                             Privacy:
-                        <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handleInput} value="Public" />
-                        <span>Public</span>
-                        <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handleInput} value="Private" />
-                        <span>Private</span>
+                        <label>
+                        <input className='radio' type="radio" name="private" checked={this.state.private ? '' : 'checked'} onChange={this.handlePrivate(false)} value="Public" />
+                         Public
+                        <span>Anyone will be able to listen to this track</span>
+                        </label>
+                        <label>
+                        <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handlePrivate(true)} value="Private" />
+                         Private
+                        </label>
                         </label>
                             
-
+                        <div className='cancel-submit'>
+                            <span>Required fields</span>
+                            <div>
+                            <input className="signup replace-button" type="submit" value="Save"/>
+                            <input className="replace-button cancel-button" type="submit" value="Cancel" />
+                            </div>
+                  
+                        </div>
                         </section>
 
-                            <aside>Provide FLAC, WAV, ALAC or AIFF for best audio quality.</aside>
+                        <div className='terms-use terms-use-dropped'>
+                            By uploading, you confirm that your sounds comply
+                            with our Terms of Use and you don't infringe anyone else's rights.
+                        </div>
 
                         </form>
     
+                        {/* <div className='terms-use terms-use-dropped'>
+                            By uploading, you confirm that your sounds comply
+                            with our Terms of Use and you don't infringe anyone else's rights.
+                        </div> */}
+
                      </div>
            
-                    <div className='terms-use'>
-                        By uploading, you confirm that your sounds comply
-                        with our Terms of Use and you don't infringe anyone else's rights.
-                    </div>
 
                     </div>            
 

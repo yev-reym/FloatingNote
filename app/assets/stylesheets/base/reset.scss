@@ -73,6 +73,7 @@ textarea:focus{
 
 textarea{
     resize: vertical;
+    min-height: 10px;
 }
 
 blockquote, q {

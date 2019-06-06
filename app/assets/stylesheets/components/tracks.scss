@@ -7,7 +7,6 @@
 
 .radio{
     margin: 3px 1.5ex;
-
 }
 
 .radio:checked{
@@ -46,6 +45,7 @@ input[type='file'] {
     background: #ffffff;
     margin: 0 auto;
     height: 100%;
+    // height: fit-content;
     position: relative;
 }
 
@@ -97,7 +97,8 @@ input[type='file'] {
     background-image: url('MLB_background.jpg');
     position: absolute;
     width: 1240px;
-    height: 100%;
+    // height: 100%;
+    height: -webkit-fill-available;
     padding: 90px 0;
 
 }
@@ -253,10 +254,12 @@ input[type="radio"]:checked:before {
 }
 
 .fill-in-form{
-    position: absolute;
-    top: 25px;
     width: 800px;
     padding: 14px 25px 0;
+    display: block;
+    // flex-direction: column;
+    height: fit-content;
+    margin-top: -115px;
 }
 
 .basic-info-tab{
@@ -286,7 +289,7 @@ input[type="radio"]:checked:before {
     font-weight: 100;
     background: #fff;
     line-height: normal;
-
+    font-size: 12px;
     border-radius: 5px;
     position: relative;
     z-index: 1;
@@ -296,11 +299,12 @@ input[type="radio"]:checked:before {
 
 .info-container{
     width: 750px;
-    height: 390px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-end;
+    margin-top: 20px;
 }
 
 .form-field{
@@ -310,7 +314,40 @@ input[type="radio"]:checked:before {
     margin: 25px 0px;
 }
 
-.upload-info-form{
-    position: absolute;
-    top: 60px;
+#privacy-label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align:left;
+    width: 470px;
+    margin-bottom: 45px;
 }
+
+#privacy-label span{
+    display: block;
+    color: #666;
+    padding-left: 35px;
+}
+
+.terms-use-dropped{
+    background: #ffffff;
+    border: 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.cancel-submit{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 25px;
+    border: 1px solid #f2f2f2;
+}
+
+.cancel-submit div{
+    display:flex;
+    flex-direction: row-reverse;
+}
+
+
