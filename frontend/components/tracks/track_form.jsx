@@ -190,14 +190,18 @@ class TrackForm extends React.Component {
 
                         <section className='info-container upload-info-form'>
 
-                            {/* <div className='photo-container'>
+
+                        <div>
+                             <div className='photo-container'>
                                 <img className='photo' src={this.state.photo} />
                                 <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handleFile}>
                                     Upload Image
                                 <input className="label-input" type='file' />
                                 </label>
 
-                            </div> */}
+                            </div>
+                        </div>
+                           
 
                             <label className='required-field form-field'>
                                 <span> Title</span>
