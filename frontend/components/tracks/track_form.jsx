@@ -54,6 +54,7 @@ class TrackForm extends React.Component {
                 formData.append('track[tags]', this.state.tags);
                 formData.append('track[description]', this.state.description);
                 formData.append('track[track_file]', this.state.track_file);
+                formData.append('track[photo]', this.state.photo);
                 formData.append('track[uploader_id]', this.props.currentUser.id);
                 this.props.upload(formData);
         }
@@ -188,6 +189,16 @@ class TrackForm extends React.Component {
                         </nav>
 
                         <section className='info-container upload-info-form'>
+
+                            {/* <div className='photo-container'>
+                                <img className='photo' src={this.state.photo} />
+                                <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handleFile}>
+                                    Upload Image
+                                <input className="label-input" type='file' />
+                                </label>
+
+                            </div> */}
+
                             <label className='required-field form-field'>
                                 <span> Title</span>
                             <input type="text" className={`field ${errorStyleTitle}`} value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>

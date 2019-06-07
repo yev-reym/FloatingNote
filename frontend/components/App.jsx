@@ -7,6 +7,7 @@ import LogoutContainer from './logout/logout_container';
 import {AuthRoute, ProtectedRoute} from '../utils/route_util';
 import TrackFormContainer from './tracks/track_form_container';
 import NavBarLess from './nav/nav_bar_missing';
+import Discover from './discover/discover';
 
 
 const App = () => (
@@ -19,7 +20,7 @@ const App = () => (
     <Switch>
         <Route path='/logout' component={LogoutContainer} />
         <Route path='/upload' component={TrackFormContainer} />
-        <Route path='/discover' component={NavBarContainer} />
+        <Route path='/discover' component={Discover} />
         <ProtectedRoute path='/' component={SplashContainer} />
     </Switch>
     </>
