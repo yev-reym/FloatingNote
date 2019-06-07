@@ -13,7 +13,7 @@
     background: #333;
     transition: height .2s ease-in-out;
     -webkit-font-smoothing: subpixel-antialiased;
-    z-index: 1000;
+    z-index: 9;
     justify-content: center;
 }
 
@@ -30,9 +30,6 @@
 }
 
 .nav-search-container{
-    display: block;
-    width: 412px;
-    height: 100%;
     flex: 1;
     padding: 9px 10px 8px;
     position: relative;
@@ -170,8 +167,8 @@
 .glass-icon-item{
     width: 20px;
     position: absolute;
-    right: 5%;
-    top: 17%;
+    right: 3%;
+    top: 23%;
 }
 
 .logo-signed-in{
@@ -191,24 +188,33 @@
     border: none;
 }
 
-.bell-icon{
-    position: absolute;
-    top: 24%;
-    left: 22%;
-    background: transparent;
-    padding-bottom: 12px;
-    height: 52%;
+.control-overflow{
+    width: fit-content;
 }
 
-.drop-down-notification{
-    width: 46px;
-    height: 46px;
-    border: 0;
-    box-sizing: border-box; 
-    text-align: center;
-    display: block;
-    padding: 12px 0;
-    background-position: center;
-    position: relative;
+.clicked{
+    color: #fff;
+    background: #111;
 }
+
+// .bell-icon{
+//     position: absolute;
+//     top: 24%;
+//     left: 22%;
+//     background: transparent;
+//     padding-bottom: 12px;
+//     height: 52%;
+// }
+
+// .drop-down-notification{
+//     width: 46px;
+//     height: 46px;
+//     border: 0;
+//     box-sizing: border-box; 
+//     text-align: center;
+//     display: block;
+//     padding: 12px 0;
+//     background-position: center;
+//     position: relative;
+// }
 

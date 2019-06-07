@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER } from '../actions/auth_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS, LOGOUT_CURRENT_USER, RECEIVE_NEW_USERNAME } from '../actions/auth_actions';
 import { merge } from 'lodash';
 
 const _nullUser = Object.freeze({
@@ -14,6 +14,8 @@ const sessionReducer = (state=_nullUser, action) =>{
                     return _nullUser;
                 case RECEIVE_SESSION_ERRORS:
                     return state;
+                case RECEIVE_NEW_USERNAME:
+                    return merge({}, state, { currentUser: action.payload });
                 default:
                     return state;
             }

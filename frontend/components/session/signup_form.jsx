@@ -127,7 +127,8 @@ class SignUpForm extends React.Component {
                 return (
                     <>
                         <form onSubmit={this.handlePasswordSubmit} className="modal-form">
-                            <div className="logn-form-container signup-form">
+                            <div className="logn-form-container signup-form"> 
+                            {/* login spelled incorrectly */}
                             <h1 className='create-account'>Create your FloatingNote account</h1>
                 
                                 <button onClick={(e) => {

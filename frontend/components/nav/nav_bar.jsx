@@ -53,23 +53,23 @@ class NavBar extends React.Component {
            return(
         <header className="nav-bar-container">
             <nav className="nav-bar">
-                       <NavLink className="nav-button cloud-nav logo-signed-in" to='/discover'>
+                <NavLink className="nav-button cloud-nav logo-signed-in" to='/discover'>
                     <figure className="signed-in-cloud" >
                                <img src={window.logo} className="cloud-logo-item nav-logo-item logo-item-signed-in" />
                     </figure>
                 </NavLink>
-                <a className='nav-button nav-home'>Home</a>
+                <NavLink className='nav-button nav-home' to='/discover'>Home</NavLink>
                 <a className='nav-button nav-stream'>Stream</a>
                 <a className='nav-button nav-stream'>Library</a>
                 <form className='nav-search-container'>
                     <input className={`search-bar ${styleSearch}`} onFocus={this._onFocus} onBlur={this._onBlur} type="text" placeholder="Search" />
                     <img src={window.glass} className="nav-logo-item glass-icon-item" />
                 </form>
-                <a className='upload'>Upload</a>
-                <a className='nav-button profile'><span>{this.props.currentUser.username}</span></a>
-                <div className="drop-down-notification">
+                <NavLink activeClassName='clicked' className='upload' to='/upload'>Upload</NavLink>
+                       <a className='nav-button profile control-overflow'><span>{this.props.currentUser.username}</span></a>
+                {/* <div className="drop-down-notification">
                     <img onClick={this.handleDropDown} src={window.notifications} className={`bell-icon ${this.state.droppedDown ? 'open' : null}`} />
-                </div>
+                </div> */}
                 <div className="drop-down">
                     <img onClick={this.handleDropDown} src={window.options} className={`options-icon ${this.state.droppedDown ? 'open' : null}`} />
                     <NavLink to="/logout" onClick={this.handleLogout} className={`${this.state.droppedDown ? 'show' : 'hidden'}`}>Sign out</NavLink>

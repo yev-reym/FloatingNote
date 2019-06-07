@@ -44,8 +44,8 @@ class Splash extends React.Component {
                     <section className="carousel-information">
 
                         <section className="carousel-mid">
-                            <h1>Discover more with SoundCloud Go+</h1>
-                            <p>SoundCloud Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</p> 
+                            <h1>Discover more with FloatingNote Go+</h1>
+                            <p>FloatingNote Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</p> 
                             <button className="buttons demo-button" onClick={this.handleDemo}>Try it free!</button>
                         </section>
 

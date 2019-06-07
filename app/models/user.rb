@@ -2,10 +2,15 @@ class User < ApplicationRecord
     validates :username, :password_digest, :session_token, :age, :gender, :email, :profile_url, presence: true
     validates :session_token, :email, :profile_url, uniqueness: true
     validates :password, length: {minimum: 6}, allow_nil: true
-    # validates_email_format_of :email
+  
 
     attr_reader :password 
     after_initialize :ensure_session_token, :ensure_profile_url_and_username
+
+    has_one_attached :photo
+    has_many :tracks,
+        foreign_key: :uploader_id,
+        class_name: :Track
 
     def password=(password)
         @password = password
@@ -38,7 +43,7 @@ class User < ApplicationRecord
 
     def ensure_profile_url_and_username
         rand_num = rand.to_s[2..18]
-        self.profile_url ||= 'floatingnote.herokuapp/user-' + rand_num
         self.username ||= 'user-' + rand_num
+        self.profile_url ||= 'user-' + rand_num
     end
 end

@@ -40,6 +40,8 @@ class LoginForm extends React.Component {
             </ul>
         );
     }
+    
+    
 
     render() {
         const errorStyle = this.props.errorsSession[0] ? 'errors-input' : null
