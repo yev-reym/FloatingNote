@@ -33,7 +33,7 @@ class TrackForm extends React.Component {
         }
 
         handleFile(e){
-            debugger
+            // debugger
             e.preventDefault();
             const track = e.target.files[0];
             this.setState({track_file: track, title: track.name});

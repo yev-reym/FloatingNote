@@ -7,7 +7,7 @@ import {withRouter} from 'react-router-dom';
 const mapStateToProps = ({session}) => {
     return {
         currentUser: session.currentUser,
-        track: {title:'', genre:'', private: false, tags: '', track_file: null, errorsTitle: [], description:'' }
+        track: {title:'', genre:'', private: false, tags: '', track_file: null, errorsTitle: [], description:'', imageUrl:null }
     };
 };
 

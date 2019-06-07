@@ -17,8 +17,8 @@ const App = () => (
     </Switch>
     <Modal />
     <Switch>
-        <Route path='/upload' component={TrackFormContainer} />
         <Route path='/logout' component={LogoutContainer} />
+        <Route path='/upload' component={TrackFormContainer} />
         <Route path='/discover' component={NavBarContainer} />
         <ProtectedRoute path='/' component={SplashContainer} />
     </Switch>

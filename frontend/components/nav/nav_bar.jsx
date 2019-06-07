@@ -18,7 +18,6 @@ class NavBar extends React.Component {
     }
 
     handleLogout(e){
-        e.preventDefault();
         this.setState({droppedDown: false});
         this.props.logout();
     }
