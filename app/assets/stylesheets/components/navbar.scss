@@ -13,7 +13,7 @@
     background: #333;
     transition: height .2s ease-in-out;
     -webkit-font-smoothing: subpixel-antialiased;
-    z-index: 1000;
+    z-index: 9;
     justify-content: center;
 }
 
@@ -30,9 +30,6 @@
 }
 
 .nav-search-container{
-    // display: block;
-    // width: 412px;
-    // height: 100%;
     flex: 1;
     padding: 9px 10px 8px;
     position: relative;

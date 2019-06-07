@@ -12,7 +12,6 @@ class Api::TracksController < ApplicationController
     
     def create 
         @track = Track.new(track_params)
-
         if @track.save
             render :show
         else 
@@ -39,6 +38,6 @@ class Api::TracksController < ApplicationController
     private 
 
     def track_params
-        params.require(:track).permit(:title,:genre,:private, :tags, :uploader_id, :track_file, :description)
+        params.require(:track).permit(:title,:genre,:private,:tags,:uploader_id,:track_file,:description)
     end
 end

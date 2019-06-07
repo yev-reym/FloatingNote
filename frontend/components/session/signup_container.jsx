@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login, logout, confirmInfo, signup, updateUsername} from '../../actions/auth_actions';
+import { logout,signup, updateUsername} from '../../actions/auth_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import SignUpForm from './signup_form';
 import { withRouter } from 'react-router-dom';
@@ -19,7 +19,8 @@ const mapDispatchToProps = dispatch => {
         closeModal: () => dispatch(closeModal()),
         signup: (user) => dispatch(signup(user)),
         logout: () => dispatch(logout()),
-        updateUsername: (user) => dispatch(updateUsername(user))
+        updateUsername: (user) => dispatch(updateUsername(user)),
+        openModal: (modal) => dispatch(openModal(modal))
     };
 };
 

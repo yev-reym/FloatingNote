@@ -4,15 +4,19 @@ import { merge } from 'lodash';
 
 const tracksReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
+    let newState;
     switch (action.type) {
         case RECEIVE_TRACKS:
-            return merge({}, oldState, action.tracks);
+            newState = {};
+            debugger
+            action.tracks.forEach(track => newState[track.id] = track);
+            return merge( oldState, newState);
         case RECEIVE_TRACK:
             return merge({}, oldState, {[action.track.id]: action.track});
         case EDIT_TRACK:
             return merge({}, oldState, { [action.track.id]: action.track });
         case REMOVE_TRACK:
-            const newState = merge({},oldState);
+            newState = merge({},oldState);
             delete newState[action.trackId];
             return newState;
         default:

@@ -9,14 +9,14 @@ export const REMOVE_TRACK = 'REMOVE_TRACK';
 export const receiveTracks = (tracks) => {
         return {
             type: RECEIVE_TRACKS,
-            tracks
+            tracks: Object.values(tracks)
         };
 };
 
 
 export const receiveTrack = (track) => {
     return {
-        type: RECEIVE_TRACKS,
+        type: RECEIVE_TRACK,
         track
     };
 };

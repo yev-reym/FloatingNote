@@ -41,12 +41,10 @@ input[type='file'] {
 }
 
 .main-page-container {
-    width: 1240px;
+     width: 1240px;
     background: #ffffff;
     margin: 0 auto;
-    height: 100%;
-    // height: fit-content;
-    position: relative;
+    height: 110em;
 }
 
 .creator-nav-container{
@@ -66,12 +64,10 @@ input[type='file'] {
 
 .upload-form-container{
     display:flex;
-    position:absolute;
     top: 100px;
-    padding: 120px 0;
+    padding-top: 120px;
     box-sizing: border-box;
     justify-content: space-between;
-    flex-direction: column;
 }
 
 .active-tab{
@@ -80,6 +76,7 @@ input[type='file'] {
 }
 
 .upload-form-container{
+    display:flex;
     flex-direction: column;
     margin: 0 auto;
     border-radius: 2px;
@@ -219,13 +216,11 @@ input[type="radio"]:checked:before {
 
 .form-parent-container{
     display: flex;
-    width: 100%;
     height: 905px;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
     border-top: 1px solid #f2f2f2;
-    top: 95px;
+    margin-top: 95px;
 }
 
 .upload-info{
@@ -234,7 +229,6 @@ input[type="radio"]:checked:before {
     justify-content: flex-start;
     align-items: center;
     height: 600px;
-    position: relative;
 }
 
 .p-bar-left{
@@ -255,12 +249,14 @@ input[type="radio"]:checked:before {
 
 .fill-in-form{
     width: 800px;
-    padding: 14px 25px 0;
-    display: block;
-    // flex-direction: column;
     height: fit-content;
     margin-top: -115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .basic-info-tab{
     font-size: 24px;
@@ -299,12 +295,13 @@ input[type="radio"]:checked:before {
 
 .info-container{
     width: 750px;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 20px;
+    margin-top: -40px;
+    
 }
 
 .form-field{
@@ -334,6 +331,7 @@ input[type="radio"]:checked:before {
     background: #ffffff;
     border: 0;
     border-bottom: 1px solid #f2f2f2;
+    height: 70px;
 }
 
 .cancel-submit{
@@ -343,6 +341,7 @@ input[type="radio"]:checked:before {
     justify-content: space-between;
     padding: 20px 25px;
     border: 1px solid #f2f2f2;
+    box-sizing: border-box;
 }
 
 .cancel-submit div{
@@ -350,4 +349,30 @@ input[type="radio"]:checked:before {
     flex-direction: row-reverse;
 }
 
+.asterisk:before{
+    content:'*';
+     color: #cf0000;
+     display: inline-block;
+     margin-left: 2px;
+     font-size: 14px;
+}
+
+.errors-upload{
+    margin-top: -20px;
+    margin-bottom: 0px;
+    margin-right: 400px;
+}
+
+.save-button{
+    background: #f50;
+    color:white;
+}
+
+.cancel-button{
+    border: none;
+}
+
+.initial-form{
+    height: -webkit-fill-available
+}
 

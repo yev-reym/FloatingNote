@@ -1,5 +1,6 @@
 import React from 'react';
 import CreatorsNav from './creators_nav';
+import {Redirect} from 'react-router-dom';
 
 class TrackForm extends React.Component {
         constructor(props){
@@ -11,10 +12,20 @@ class TrackForm extends React.Component {
             this.handlePrivate = this.handlePrivate.bind(this);
             this.renderErrorsTitle = this.renderErrorsTitle.bind(this);
             this.handleUpload = this.handleUpload.bind(this);
+            this.handleCancel = this.handleCancel.bind(this);
         }
 
-        handlePrivate(boolean){
-             return () => this.setState({ private: boolean });
+        handleCancel(e){
+            e.preventDefault();
+            if (confirm('Are you sure you want to stop your upload? Any unsaved changes will be lost.')) {
+                this.setState({track_file: null, errorsTitle:[]});
+            } else {
+                return ;
+            }
+        }
+
+        handlePrivate(value){
+             return () => this.setState({ private: Boolean(value) });
         }
 
         handleInput(field){
@@ -22,6 +33,7 @@ class TrackForm extends React.Component {
         }
 
         handleFile(e){
+            debugger
             e.preventDefault();
             const track = e.target.files[0];
             this.setState({track_file: track, title: track.name});
@@ -30,6 +42,7 @@ class TrackForm extends React.Component {
 
         handleUpload(e){
                 e.preventDefault();
+                // debugger
                 const formData = new FormData();
                 if (this.state.title.length === 0){
                     this.setState({errorsTitle: ['Enter a title.']});
@@ -38,6 +51,8 @@ class TrackForm extends React.Component {
                 }
                 formData.append('track[private]', this.state.private);
                 formData.append('track[genre]', this.state.genre);
+                formData.append('track[tags]', this.state.tags);
+                formData.append('track[description]', this.state.description);
                 formData.append('track[track_file]', this.state.track_file);
                 formData.append('track[uploader_id]', this.props.currentUser.id);
                 this.props.upload(formData);
@@ -47,7 +62,7 @@ class TrackForm extends React.Component {
             return (
                 <ul>
                     {this.state.errorsTitle.map((error, i) => (
-                        <li className='errors' key={`error-${i}`}>
+                        <li className='errors errors-upload' key={`error-${i}`}>
                             {error}
                         </li>
                     ))}
@@ -70,23 +85,23 @@ class TrackForm extends React.Component {
                 return (
 
                 <>
-                <main className="main-page-container">
+                <main className="main-page-container initial-form">
 
                 
 
                 <CreatorsNav className='creator-nav' profile_url={this.props.currentUser.profile_url}/>
 
-                <section className='background-image-container'>
+                <section className='background-image-container initial-form'>
 
                 <div className='upload-form-container'>
 
 
-                <form className="upload-form">
+                    <form className="upload-form" >
                     <h1 className='title'>Drag and drop your tracks & albums here</h1 >
 
-                                        <label className='submit-button drag-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragExit={e => e.preventDefault()} onChange={this.handleFile}>
+                    <label className='submit-button drag-button'>
                         or choose files to upload
-                        <input className="label-input" type='file' /> 
+                        <input className="label-input" type='file' draggable='true' onDrop={this.handleFile} onDragExit={e => e.preventDefault()} onDragEnter={e => e.preventDefault()} onDragOver={e => e.preventDefault()} onChange={this.handleFile} /> 
                     </label>
                     
                     <label  htmlFor="privacy">
@@ -113,7 +128,6 @@ class TrackForm extends React.Component {
 
                 </section>
 
-
                 </main>
 
             </>
@@ -121,7 +135,7 @@ class TrackForm extends React.Component {
                 )
                
             } else {
-
+                const errorStyleTitle = this.state.errorsTitle[0] ? 'errors-input' : null
                 return (
                     <>
                     <main className="main-page-container">
@@ -157,7 +171,7 @@ class TrackForm extends React.Component {
                      <div className='upload-info'>
 
                         <div className="p-bar-container">
-                            <p >{this.state.title}</p>
+                            <p >{this.state.track_file.name}</p>
                             <p >Ready. Click Save to post this track.</p>
                         </div>
                         <div className="p-bar-container">
@@ -165,7 +179,7 @@ class TrackForm extends React.Component {
                             <p className='p-bar-right'></p>
                         </div>
 
-                        <form className="upload-form-container fill-in-form" onSubmit={this.handleUpload}>
+                    <form className="upload-form-container fill-in-form" onSubmit={this.handleUpload}>
 
                         <nav className='creator-nav-container basic-info-container'>
                             <ul className="tab-container basic-info" >
@@ -176,7 +190,7 @@ class TrackForm extends React.Component {
                         <section className='info-container upload-info-form'>
                             <label className='required-field form-field'>
                                 <span> Title</span>
-                            <input type="text" className='field' value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
+                            <input type="text" className={`field ${errorStyleTitle}`} value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
                             </label>
                             {this.renderErrorsTitle()}
 
@@ -208,27 +222,24 @@ class TrackForm extends React.Component {
                         </label>
                         </label>
                             
-                        <div className='cancel-submit'>
-                            <span>Required fields</span>
-                            <div>
-                            <input className="signup replace-button" type="submit" value="Save"/>
-                            <input className="replace-button cancel-button" type="submit" value="Cancel" />
-                            </div>
-                  
-                        </div>
+                    
                         </section>
 
-                        <div className='terms-use terms-use-dropped'>
+                            <div className='cancel-submit'>
+                            <span className="asterisk">Required fields</span>
+                            <div>
+                            <input className="replace-button signup save-button" type="submit" value="Save"/>
+                            <input form='' className="replace-button cancel-button" type="submit" value="Cancel" onClick={this.handleCancel} />
+                            </div>
+                  
+                            </div>
+
+                        <div className='terms-use terms-use-dropped upload-form-container'>
                             By uploading, you confirm that your sounds comply
                             with our Terms of Use and you don't infringe anyone else's rights.
                         </div>
 
-                        </form>
-    
-                        {/* <div className='terms-use terms-use-dropped'>
-                            By uploading, you confirm that your sounds comply
-                            with our Terms of Use and you don't infringe anyone else's rights.
-                        </div> */}
+                    </form>
 
                      </div>
            
