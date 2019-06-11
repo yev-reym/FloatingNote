@@ -164,12 +164,11 @@ button:focus {outline:0;}
  }
 
  .carousel-information{
-    display:flex;
+    display: flex;
+    height: 90%;
+    align-items: center;
     justify-content: center;
-    width: 530px;
-    margin: 8% auto;
     text-align: center;
-
  }
 
 

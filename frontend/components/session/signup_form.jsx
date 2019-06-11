@@ -17,7 +17,6 @@ class SignUpForm extends React.Component {
     }
 
     update(field) {
-     
         return e => this.setState({
             [field]: e.target.value
         });
@@ -133,9 +132,8 @@ class SignUpForm extends React.Component {
                 
                                 <button onClick={(e) => {
                                     e.preventDefault();
-
                                     this.props.closeModal()
-                                    this.props.returnForm('checkInfo')
+                                    this.props.openModal('checkInfo')
                                 }}
                                     form=''
                                     className="input-box-login"

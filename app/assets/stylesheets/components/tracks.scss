@@ -296,10 +296,14 @@ input[type="radio"]:checked:before {
 .info-container{
     width: 750px;
     height: fit-content;
-    display: flex;
-    flex-direction: column;
+     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: flex-end;
     margin-top: -40px;
     
 }
@@ -308,7 +312,7 @@ input[type="radio"]:checked:before {
     text-align: left;
     font-size: 12px;
     width: 470px;
-    margin: 25px 0px;
+    margin-bottom: 30px;
 }
 
 #privacy-label{
@@ -376,3 +380,21 @@ input[type="radio"]:checked:before {
     height: -webkit-fill-available
 }
 
+.input-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.photo-container{
+    height: 260px;
+    width: 260px;
+    margin-right: 20px;
+}
+
+.photo{
+    margin-bottom: -70px;
+    height: 100%;
+    width: 100%;
+}

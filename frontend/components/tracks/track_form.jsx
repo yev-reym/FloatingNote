@@ -1,6 +1,6 @@
 import React from 'react';
 import CreatorsNav from './creators_nav';
-import {Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class TrackForm extends React.Component {
         constructor(props){
@@ -13,12 +13,33 @@ class TrackForm extends React.Component {
             this.renderErrorsTitle = this.renderErrorsTitle.bind(this);
             this.handleUpload = this.handleUpload.bind(this);
             this.handleCancel = this.handleCancel.bind(this);
+            this.handlePhoto = this.handlePhoto.bind(this);
+            this.renderErrorsAudio = this.renderErrorsAudio.bind(this);
+            this.renderErrorsPhoto = this.renderErrorsPhoto.bind(this);
+        }
+
+        handlePhoto(e){
+            const photo = e.target.files[0];
+
+            if (photo.type.includes('image')){
+                this.setState({ errorsPhoto: [] })
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    this.setState({ photoUrl: reader.result});
+            } 
+             if (photo) {
+                reader.readAsDataURL(photo);
+            };
+            } else {
+                this.setState({errorsPhoto: ['One of your files is not supported!']})
+            }
+            
         }
 
         handleCancel(e){
             e.preventDefault();
             if (confirm('Are you sure you want to stop your upload? Any unsaved changes will be lost.')) {
-                this.setState({track_file: null, errorsTitle:[]});
+                this.setState({trackFile: null, errorsTitle:[]});
             } else {
                 return ;
             }
@@ -33,16 +54,19 @@ class TrackForm extends React.Component {
         }
 
         handleFile(e){
-            // debugger
-            e.preventDefault();
             const track = e.target.files[0];
-            this.setState({track_file: track, title: track.name});
+
+            if (track.type.includes('audio')) {
+                this.setState({ trackFile: track, title: track.name, errorsAudio: []});
+            } else {
+                this.setState({ errorsAudio: ['One of your files is not supported!']})
+            }
             
         }
 
         handleUpload(e){
                 e.preventDefault();
-                // debugger
+    
                 const formData = new FormData();
                 if (this.state.title.length === 0){
                     this.setState({errorsTitle: ['Enter a title.']});
@@ -53,10 +77,11 @@ class TrackForm extends React.Component {
                 formData.append('track[genre]', this.state.genre);
                 formData.append('track[tags]', this.state.tags);
                 formData.append('track[description]', this.state.description);
-                formData.append('track[track_file]', this.state.track_file);
-                formData.append('track[photo]', this.state.photo);
+                formData.append('track[track_file]', this.state.trackFile);
+                formData.append('track[photo]', this.state.photoUrl);
                 formData.append('track[uploader_id]', this.props.currentUser.id);
                 this.props.upload(formData);
+                
         }
 
         renderErrorsTitle() {
@@ -64,6 +89,30 @@ class TrackForm extends React.Component {
                 <ul>
                     {this.state.errorsTitle.map((error, i) => (
                         <li className='errors errors-upload' key={`error-${i}`}>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
+            );
+        } 
+
+        renderErrorsAudio() {
+            return (
+                <ul>
+                    {this.state.errorsAudio.map((error, i) => (
+                        <li className='errors errors-upload' key={`error-${i}`}>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
+            );
+        } 
+
+        renderErrorsPhoto() {
+            return (
+                <ul>
+                    {this.state.errorsPhoto.map((error, i) => (
+                        <li className='errors' key={`error-${i}`}>
                             {error}
                         </li>
                     ))}
@@ -81,7 +130,7 @@ class TrackForm extends React.Component {
         // }
 
         handleFormRender(){
-            if (!this.state.track_file) {
+            if (!this.state.trackFile) {
 
                 return (
 
@@ -104,6 +153,7 @@ class TrackForm extends React.Component {
                         or choose files to upload
                         <input className="label-input" type='file' draggable='true' onDrop={this.handleFile} onDragExit={e => e.preventDefault()} onDragEnter={e => e.preventDefault()} onDragOver={e => e.preventDefault()} onChange={this.handleFile} /> 
                     </label>
+                    {this.renderErrorsAudio()}
                     
                     <label  htmlFor="privacy">
                         Privacy:
@@ -172,7 +222,7 @@ class TrackForm extends React.Component {
                      <div className='upload-info'>
 
                         <div className="p-bar-container">
-                            <p >{this.state.track_file.name}</p>
+                            <p >{this.state.trackFile.name}</p>
                             <p >Ready. Click Save to post this track.</p>
                         </div>
                         <div className="p-bar-container">
@@ -191,19 +241,19 @@ class TrackForm extends React.Component {
                         <section className='info-container upload-info-form'>
 
 
-                        <div>
                              <div className='photo-container'>
-                                <img className='photo' src={this.state.photo} />
-                                <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handleFile}>
-                                    Upload Image
+                                <img className='photo' src={this.state.photoUrl} />
+                                <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handlePhoto}>
+                                    Update image
                                 <input className="label-input" type='file' />
                                 </label>
+                                {this.renderErrorsPhoto()}
 
                             </div>
-                        </div>
-                           
 
-                            <label className='required-field form-field'>
+                           
+                    <div className='input-fields'>
+                           <label className='required-field form-field'>
                                 <span> Title</span>
                             <input type="text" className={`field ${errorStyleTitle}`} value={this.state.title} onChange={this.handleInput('title')} placeholder="Name your track"/>
                             </label>
@@ -235,7 +285,9 @@ class TrackForm extends React.Component {
                         <input className='radio' type="radio" name="private" checked={this.state.private ? 'checked' : ''} onChange={this.handlePrivate(true)} value="Private" />
                          Private
                         </label>
-                        </label>
+                        </label> 
+                    </div>
+                            
                             
                     
                         </section>
