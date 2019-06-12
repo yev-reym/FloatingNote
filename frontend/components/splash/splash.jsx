@@ -14,13 +14,12 @@ class Splash extends React.Component {
     }
 
     handleDemo(){
-            const signIn = document.getElementById('signin');
-            signIn.click();
+            this.modalButton.click();
     }
 
     render(){
         return (
-            <main className="splash-app">
+            <main className="app">
 
                 <header className="carousel">
 
@@ -33,9 +32,9 @@ class Splash extends React.Component {
                        
                         <div className="carousel-nav">
 
-                        <button id='signin' className="buttons signin" onClick={this.handleClick}>Sign in</button>
+                            <button className="signin" ref={element => this.modalButton = element} onClick={this.handleClick}>Sign in</button>
 
-                        <button className="buttons signup" onClick={this.handleClick}>Create account</button>
+                        <button className="signup" onClick={this.handleClick}>Create account</button>
 
                         </div>
 
@@ -46,7 +45,7 @@ class Splash extends React.Component {
                         <section className="carousel-mid">
                             <h1>Discover more with FloatingNote Go+</h1>
                             <p>FloatingNote Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</p> 
-                            <button className="buttons demo-button" onClick={this.handleDemo}>Try it free!</button>
+                            <button className="demo-button" onClick={this.handleDemo}>Try it free!</button>
                         </section>
 
                     </section>

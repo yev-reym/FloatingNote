@@ -1,6 +1,6 @@
 import React from 'react';
 import CreatorsNav from './creators_nav';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 class TrackForm extends React.Component {
         constructor(props){
@@ -22,14 +22,19 @@ class TrackForm extends React.Component {
             const photo = e.target.files[0];
 
             if (photo.type.includes('image')){
-                this.setState({ errorsPhoto: [] })
+
                 const reader = new FileReader();
                 reader.onloadend = () => {
-                    this.setState({ photoUrl: reader.result});
-            } 
-             if (photo) {
-                reader.readAsDataURL(photo);
-            };
+                    this.setState({ 
+                        photoUrl: reader.result, 
+                        errorsPhoto: []}
+                        );
+                }
+
+                if (photo) {
+                    reader.readAsDataURL(photo);
+                }
+
             } else {
                 this.setState({errorsPhoto: ['One of your files is not supported!']})
             }
@@ -71,16 +76,18 @@ class TrackForm extends React.Component {
                 if (this.state.title.length === 0){
                     this.setState({errorsTitle: ['Enter a title.']});
                 } else {
+                    this.setState({ errorsTitle: [] });
                     formData.append('track[title]', this.state.title);
+                    formData.append('track[private]', this.state.private);
+                    formData.append('track[genre]', this.state.genre);
+                    formData.append('track[tags]', this.state.tags);
+                    formData.append('track[description]', this.state.description);
+                    formData.append('track[track_file]', this.state.trackFile);
+                    // formData.append('track[photo]', this.state.photoUrl);
+                    formData.append('track[uploader_id]', this.props.currentUser.id);
+                    this.props.upload(formData).then((track) => this.props.history.push() );
                 }
-                formData.append('track[private]', this.state.private);
-                formData.append('track[genre]', this.state.genre);
-                formData.append('track[tags]', this.state.tags);
-                formData.append('track[description]', this.state.description);
-                formData.append('track[track_file]', this.state.trackFile);
-                formData.append('track[photo]', this.state.photoUrl);
-                formData.append('track[uploader_id]', this.props.currentUser.id);
-                this.props.upload(formData);
+                
                 
         }
 

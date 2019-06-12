@@ -5,7 +5,7 @@ import React from 'react';
 const Discover = (props) => {
 
     return (
-    <main className='main-page-container'>
+    <main className='app'>
         <h1 className="logout-heading"> In Progress!</h1>
     </main>
     )
