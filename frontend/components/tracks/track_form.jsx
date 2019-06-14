@@ -26,7 +26,7 @@ class TrackForm extends React.Component {
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     this.setState({ 
-                        photoUrl: reader.result, 
+                        photoFile: reader.result, 
                         errorsPhoto: []}
                         );
                 }
@@ -83,7 +83,7 @@ class TrackForm extends React.Component {
                     formData.append('track[tags]', this.state.tags);
                     formData.append('track[description]', this.state.description);
                     formData.append('track[track_file]', this.state.trackFile);
-                    // formData.append('track[photo]', this.state.photoUrl);
+                    formData.append('track[photo]', this.state.photoFile);
                     formData.append('track[uploader_id]', this.props.currentUser.id);
                     this.props.upload(formData).then((track) => this.props.history.push() );
                 }
@@ -249,7 +249,7 @@ class TrackForm extends React.Component {
 
 
                              <div className='photo-container'>
-                                <img className='photo' src={this.state.photoUrl} />
+                                <img className='photo' src={this.state.photoFile} />
                                 <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handlePhoto}>
                                     Update image
                                 <input className="label-input" type='file' />
@@ -340,3 +340,18 @@ class TrackForm extends React.Component {
 }
 
 export default TrackForm;
+
+// //master key
+// 47842292e7cecd6b073718636d39f72c
+
+// aws:
+// access_key_id: 'AKIAXNHMWF25V5VR4RUX'
+// secret_access_key: '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'
+// region: 'us-east-1'
+// dev:
+// bucket: 'floatingnote-dev'
+// prod:
+// bucket: 'floatingnote-prod'
+
+// # Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+//     secret_key_base: b01ad905c3b00a0946ec4b03fe9f5e030cf89cdb2bf65437c675348f3bb5ff988874757f2ac50d1e90aec4706fd7b6faed9f24e5089c75182bd5a10c8601a58d

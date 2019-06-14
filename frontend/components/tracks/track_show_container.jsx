@@ -22,7 +22,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchTrack: (track) => dispatch(fetchTrack(track)),
         openModal: (modal) => dispatch(openModal(modal)),
         deleteTrack: (track) => dispatch(deleteTrack(track)),
-        // fetchCurrentTrack: (id) => dispatch(fetchCurrentTrack(id))
     }
 };  
 

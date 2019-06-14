@@ -1,5 +1,6 @@
+@import './base/colors.scss';
 
-@media (max-width: 1239px){
+@media (max-width: 1240px){
     .creator-nav-container{
         width: 1020px;
     }
@@ -13,16 +14,17 @@
     background: transparent;
 }
 
-.tab-container a{
+.tab-container > *{
     cursor: pointer;
-    color: #333;
+    color: $dark-grey;
     border-bottom: 1px solid transparent;
     display: inline-block;
     text-align: center;
 }
 
-.tab-container a:hover{
-    border-bottom: 1px solid  #333;;
+.tab-container > *:hover{
+    border-bottom: 1px solid $dark-grey;
+    color: $dark-grey;
 }
 
 .tab-container{
@@ -48,53 +50,41 @@ input[type='file'] {
 }
 
 .creator-nav-container{
-    position: absolute;
     min-height: 48px;
     line-height: 48px;
-    font-weight: 100;
-    top: 46px;
     width: 1240px;
-    display: flex;
-    justify-content: flex-start;
     padding: 0 30px;
     box-sizing: border-box;
     z-index: 1;
     background: #fff;
 }
 
+
 .upload-form-container{
-    display:flex;
     top: 100px;
     padding-top: 120px;
     box-sizing: border-box;
-    justify-content: space-between;
-}
-
-.active-tab{
-    border-bottom: 1px solid #f50 !important;
-    color: #f50 !important;
-}
-
-.upload-form-container{
-    display:flex;
-    flex-direction: column;
-    margin: 0 auto;
-    border-radius: 2px;
-    background-color: #fff;
     text-align: center;
     position: relative;
-    box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px -5px rgba(0, 0, 0, 0.1);
     border: 1px solid #f2f2f2;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    background-color: #fff;
     height: 460px;
     width: 800px;
     justify-content: center;
 }
 
+.active-tab, .active-tab:hover{
+    border-bottom: 1px solid $orange;
+    color: $orange;
+}
+
 .background-image-container{
     background-image: url('MLB_background.jpg');
-    position: absolute;
     width: 1240px;
-    // height: 100%;
     height: -webkit-fill-available;
     padding: 90px 0;
 
@@ -178,8 +168,8 @@ input[type="radio"]:checked:before {
     background: #f5f5f5;
     border-radius: 6px;
     border: solid 1px rgba(151,151,151,.2);
-    margin-bottom: 8px;
     align-items: center;
+    width: 100%;
 }
 
 .replace-button{
@@ -220,7 +210,6 @@ input[type="radio"]:checked:before {
     flex-direction: column;
     justify-content: space-between;
     border-top: 1px solid #f2f2f2;
-    margin-top: 95px;
 }
 
 .upload-info{
@@ -240,7 +229,7 @@ input[type="radio"]:checked:before {
 }
 
 .p-bar-right{
-    background-color: #f50;
+    background-color: $orange;
     background-image: linear-gradient(to right,#fd7722,#fc6621);
     transform: scaleX(1);
     width: 50%;
@@ -255,12 +244,13 @@ input[type="radio"]:checked:before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 14px;
 }
 
 
 .basic-info-tab{
     font-size: 24px;
-    width: 110px;
+    width: 116px;
     height: 40px;
     font-weight: bold;
 }
@@ -269,14 +259,13 @@ input[type="radio"]:checked:before {
     width: 744px;
     border-bottom: 1px solid #f2f2f2;
     min-height: 40px;
-    top: 20px;
+    padding: 0;
 }
 
 .basic-info{
     justify-content: flex-start;
-    position: absolute;
-    right: 558px;
 }
+
 .field{
     width: 470px;
     height: 26px;
@@ -300,12 +289,7 @@ input[type="radio"]:checked:before {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: flex-end;
-    margin-top: -40px;
-    
+    padding-top: 25px;
 }
 
 .form-field{
@@ -368,7 +352,7 @@ input[type="radio"]:checked:before {
 }
 
 .save-button{
-    background: #f50;
+    background: $orange;
     color:white;
 }
 

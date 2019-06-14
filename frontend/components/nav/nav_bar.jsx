@@ -57,7 +57,7 @@ class NavBar extends React.Component {
                                <img src={window.logo} className="cloud-logo-item nav-logo-item logo-item-signed-in" />
                     </figure>
                 </NavLink>
-                <NavLink className='nav-button nav-home' to='/discover'>Home</NavLink>
+                <NavLink className='nav-button' activeClassName='nav-home' to='/discover'>Home</NavLink>
                 <a className='nav-button nav-stream'>Stream</a>
                 <a className='nav-button nav-stream'>Library</a>
                 <form className='nav-search-container'>

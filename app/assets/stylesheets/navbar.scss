@@ -140,10 +140,10 @@
      display: block;
      width: 370%;
      height: 35%;
-     right: 1px;
+     right: 0;
      top: 100%;
      text-align: left;
-     font-size: 12px;
+     z-index: 2;
 }
 
 .show:hover{
