@@ -340,18 +340,3 @@ class TrackForm extends React.Component {
 }
 
 export default TrackForm;
-
-// //master key
-// 47842292e7cecd6b073718636d39f72c
-
-// aws:
-// access_key_id: 'AKIAXNHMWF25V5VR4RUX'
-// secret_access_key: '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'
-// region: 'us-east-1'
-// dev:
-// bucket: 'floatingnote-dev'
-// prod:
-// bucket: 'floatingnote-prod'
-
-// # Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
-//     secret_key_base: b01ad905c3b00a0946ec4b03fe9f5e030cf89cdb2bf65437c675348f3bb5ff988874757f2ac50d1e90aec4706fd7b6faed9f24e5089c75182bd5a10c8601a58d
