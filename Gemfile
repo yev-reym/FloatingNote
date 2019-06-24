@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'validates_email_format_of'
 gem 'jquery-rails'
 gem 'aws-sdk-s3'
+gem 'aws-sdk'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

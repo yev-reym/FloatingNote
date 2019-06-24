@@ -8,8 +8,8 @@ const mapStateToProps = ({session}) => {
     return {
         currentUser: session.currentUser,
         track: {title:'', genre:'', private: false, tags: '', trackFile: null,
-         errorsTitle: [], description:'', photoFile: window.defImg,
-         errorsPhoto: [], errorsAudio: []
+         errorsTitle: [], description:'', photoUrl: window.defImg, 
+         photoFile: null, errorsPhoto: [], errorsAudio: []
          }
     };
 };

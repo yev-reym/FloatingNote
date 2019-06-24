@@ -15,7 +15,7 @@ class TrackShow extends React.Component {
 
             <main className="main-container">
                 <section className="show-cover">
-
+                    Hello!
                 </section>
             
             

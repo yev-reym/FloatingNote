@@ -26,7 +26,8 @@ class TrackForm extends React.Component {
                 const reader = new FileReader();
                 reader.onloadend = () => {
                     this.setState({ 
-                        photoFile: reader.result, 
+                        photoFile: photo, 
+                        photoUrl: reader.result,
                         errorsPhoto: []}
                         );
                 }
@@ -85,7 +86,7 @@ class TrackForm extends React.Component {
                     formData.append('track[track_file]', this.state.trackFile);
                     formData.append('track[photo]', this.state.photoFile);
                     formData.append('track[uploader_id]', this.props.currentUser.id);
-                    this.props.upload(formData).then((track) => this.props.history.push() );
+                    this.props.upload(formData).then((track) => this.props.history.push(`/tracks/${track.id}`) );
                 }
                 
                 
@@ -249,7 +250,7 @@ class TrackForm extends React.Component {
 
 
                              <div className='photo-container'>
-                                <img className='photo' src={this.state.photoFile} />
+                                <img className='photo' src={this.state.photoUrl} />
                                 <label className='drag-button replace-button' onDrop={this.handleFile} onDragEnter={e => e.preventDefault()} onDragLeave={e => e.preventDefault()} onChange={this.handlePhoto}>
                                     Update image
                                 <input className="label-input" type='file' />

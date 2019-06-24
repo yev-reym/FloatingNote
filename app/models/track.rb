@@ -2,9 +2,7 @@ class Track < ApplicationRecord
     validates :title, :uploader_id, presence: true
 
     has_one_attached :track_file
-    debugger
     has_one_attached :photo
-    debugger
 
     belongs_to :uploader,
         foreign_key: :uploader_id,
