@@ -38,11 +38,13 @@ class PendingInfoForm extends React.Component {
         this.handleForm = this.handleForm.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.demo = false;
     }
 
-    handleDemo(){
+    handleDemo(e){
+        e.preventDefault();
         this.props.login({info:'user@demo.com', password:'password123'});
-        <Link to='/discover' />;
+        this.props.history.push('/discover');
         this.props.closeModal();
     }
 
@@ -58,6 +60,7 @@ class PendingInfoForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         this.props.clearErrors();
         this.props.exists === undefined ? this.props.confirmInfo(this.state.info) : this.handleForm()
@@ -86,7 +89,7 @@ class PendingInfoForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="modal-form">
                     <div className="info-form-container">
                     
-                        <button id='demo' form="" className="button button-large modal-demo-login" onClick={this.handleDemo}> Continue with Demo Login</button>
+                        <button id='demo' type='button'  className="button button-large modal-demo-login" onClick={this.handleDemo}> Continue with Demo Login</button>
                         <h2 className="divider"><span>or</span></h2>
 
                         <input type="text" className={`input-box ${errorStyle}`} onChange={this.update()} placeholder="Your email address of profile URL *" value={this.state.info} />

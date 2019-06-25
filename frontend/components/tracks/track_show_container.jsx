@@ -7,14 +7,14 @@ import TrackShow from './track_show';
 
 
 const mapStateToProps = ({entities, session}, ownProps) => {
-    const track = entities.tracks[ownProps.match.params.trackId] || {}
-    const user = entities.users[track.uploader_id]
+    const track = entities.tracks[ownProps.match.params.trackId] || {};
+    const user = entities.users[track.uploader_id];
 
     return {
         track,
         user,
         currentUser: session.currentUser 
-    }
+    };
 };  
 
 const mapDispatchToProps = (dispatch) => {

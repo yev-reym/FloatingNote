@@ -37,7 +37,7 @@ class TrackForm extends React.Component {
                 }
 
             } else {
-                this.setState({errorsPhoto: ['One of your files is not supported!']})
+                this.setState({errorsPhoto: ['One of your files is not supported!']});
             }
             
         }
@@ -86,7 +86,9 @@ class TrackForm extends React.Component {
                     formData.append('track[track_file]', this.state.trackFile);
                     formData.append('track[photo]', this.state.photoFile);
                     formData.append('track[uploader_id]', this.props.currentUser.id);
-                    this.props.upload(formData).then((track) => this.props.history.push(`/tracks/${track.id}`) );
+                    this.props.upload(formData).then((res) => {
+                        const track = res.track;
+                        this.props.history.push(`/tracks/${track.id}`); });
                 }
                 
                 
