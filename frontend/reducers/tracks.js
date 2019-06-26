@@ -8,7 +8,6 @@ const tracksReducer = (oldState = {}, action) => {
     switch (action.type) {
         case RECEIVE_TRACKS:
             newState = {};
-            debugger
             action.tracks.forEach(track => newState[track.id] = track);
             return merge( oldState, newState);
         case RECEIVE_TRACK:

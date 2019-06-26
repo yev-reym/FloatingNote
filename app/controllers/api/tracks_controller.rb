@@ -9,6 +9,16 @@ class Api::TracksController < ApplicationController
             render :index
         end
     end
+
+    def show 
+        @track = Track.find_by(id: params[:id])
+
+        if @track 
+            render :show
+        else 
+            render json: ['Track entity not found'], status: 404
+        end
+    end
     
     def create 
         @track = Track.new(track_params)

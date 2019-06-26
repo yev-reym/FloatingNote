@@ -22,8 +22,8 @@ const App = () => (
         <Route path='/logout' component={LogoutContainer} />
         <Route path='/upload' component={TrackFormContainer} />
         <Route path='/discover' component={Discover} />
-        <Route path='/tracks/:trackId' component={TrackShowContainer} />
-        <ProtectedRoute path='/' component={SplashContainer} />
+        <Route path='/:username/:trackId' component={TrackShowContainer} />
+        <ProtectedRoute exact path='/' component={SplashContainer} />
     </Switch>
     </>
 );

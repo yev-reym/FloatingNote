@@ -65,7 +65,7 @@ class TrackForm extends React.Component {
             if (track.type.includes('audio')) {
                 this.setState({ trackFile: track, title: track.name, errorsAudio: []});
             } else {
-                this.setState({ errorsAudio: ['One of your files is not supported!']})
+                this.setState({ errorsAudio: ['One of your files is not supported!']});
             }
             
         }
@@ -88,7 +88,7 @@ class TrackForm extends React.Component {
                     formData.append('track[uploader_id]', this.props.currentUser.id);
                     this.props.upload(formData).then((res) => {
                         const track = res.track;
-                        this.props.history.push(`/tracks/${track.id}`); });
+                        this.props.history.push(`/${this.props.currentUser.username}/${track.id}`); });
                 }
                 
                 

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchTrack, deleteTrack} from '../../utils/tracks_api_util';
+import {fetchTrack, deleteTrack} from '../../actions/track_actions';
 import {openModal} from '../../actions/modal_actions';
 import {withRouter} from 'react-router-dom';
 import TrackShow from './track_show';
@@ -8,18 +8,18 @@ import TrackShow from './track_show';
 
 const mapStateToProps = ({entities, session}, ownProps) => {
     const track = entities.tracks[ownProps.match.params.trackId] || {};
-    const user = entities.users[track.uploader_id];
+    const uploader = entities.users[track.uploader_id] || {};
 
     return {
         track,
-        user,
+        uploader,
         currentUser: session.currentUser 
     };
 };  
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchTrack: (track) => dispatch(fetchTrack(track)),
+        fetchTrack: (trackId) => dispatch(fetchTrack(trackId)),
         openModal: (modal) => dispatch(openModal(modal)),
         deleteTrack: (track) => dispatch(deleteTrack(track)),
     }

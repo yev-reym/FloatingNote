@@ -1,10 +1,62 @@
 
 .main-container{
-    padding: 15px 30px;
+    background: url('default-image.png');
+    padding: 20px 30px 15px 30px;
     width: 1240px;
     margin: 0 auto;
-    background: #f80;
     height: 380px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
 
+.track-photo-container{
+    height: 340px;
+    width: 340px;
+}
+
+#track-image{
+    height: 100%;
+    width: 100%;
+}
+
+.track-info{
+    width: 600px;
+    height: 70px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#username, #track-title{
+    background-color: rgba(0, 0, 0, .8);
+    color: #f0f0f0;
+    width: fit-content;
+    height: fit-content;
+    font-size: 24px;
+    padding: 0px 10px;
+}
+
+#username{
+    font-size: 16px;
+}
+
+.page-container{
+    width: 1240px;
+    background: #ffffff;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.track-info-container{
+    display:flex;
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.track-info-container h1{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 100;
+}

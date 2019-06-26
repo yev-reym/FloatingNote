@@ -17,10 +17,11 @@ export const fetchTracksByUser = (user) => {
     });
 };
 
-export const fetchTrack = (track) => {
+export const fetchTrack = (id) => {
+   
     return $.ajax({
         method: 'GET',
-        url: `api/tracks/${track.id}`
+        url: `api/tracks/${id}`
     });
 };
 

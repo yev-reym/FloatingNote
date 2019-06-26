@@ -14,10 +14,11 @@ export const receiveTracks = (tracks) => {
 };
 
 
-export const receiveTrack = (track) => {
+export const receiveTrack = ({track, uploader}) => {
     return {
         type: RECEIVE_TRACK,
-        track
+        track,
+        uploader
     };
 };
 
@@ -47,9 +48,12 @@ export const fetchTracksByUser = (user) => {
     };
 };
 
-export const fetchTrack = (track) => {
+export const fetchTrack = (id) => {
+   
     return (dispatch) => {
-        return TrackAPIUtil.fetchTrack(track).then((track) => dispatch(receiveTrack(track)));
+        return TrackAPIUtil.fetchTrack(id).then((payload) => {
+            dispatch(receiveTrack(payload));
+        });
     };
 };
 
