@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER, RECEIVE_NEW_USERNAME} from '../actions/auth_actions';
-import { RECEIVE_TRACK } from '../actions/track_actions';
+import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../actions/track_actions';
 import { merge } from 'lodash';
 
 const usersReducer = (state = {}, action) => {
@@ -11,6 +11,10 @@ const usersReducer = (state = {}, action) => {
             return merge({},state, action.payload);
         case RECEIVE_TRACK:
             return merge({}, state, {[action.uploader.id]: action.uploader});
+        case RECEIVE_TRACKS:
+            const newState = {};
+            action.uploaders.forEach(uploader => newState[uploader.id] = uploader);
+            return merge({}, state, newState);
         default:
             return state;
     }

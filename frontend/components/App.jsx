@@ -8,7 +8,7 @@ import {AuthRoute, ProtectedRoute} from '../utils/route_util';
 import TrackFormContainer from './tracks/track_form_container';
 import TrackShowContainer from './tracks/track_show_container';
 import NavBarLess from './nav/nav_bar_missing';
-import Discover from './discover/discover';
+import DiscoverContainer from './discover/discover_container';
 
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
     <Switch>
         <Route path='/logout' component={LogoutContainer} />
         <Route path='/upload' component={TrackFormContainer} />
-        <Route path='/discover' component={Discover} />
+        <Route path='/discover' component={DiscoverContainer} />
         <Route path='/:username/:trackId' component={TrackShowContainer} />
         <ProtectedRoute exact path='/' component={SplashContainer} />
     </Switch>

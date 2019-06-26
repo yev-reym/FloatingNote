@@ -1,0 +1,20 @@
+
+.track-item{
+    height: 173px;
+    width: 173px;;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.track-item-image{
+    height: 173px;
+    width: 100%;
+}
+
+.track-item-title {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

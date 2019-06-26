@@ -6,10 +6,11 @@ export const EDIT_TRACK = 'EDIT_TRACK';
 export const REMOVE_TRACK = 'REMOVE_TRACK';
 
 
-export const receiveTracks = (tracks) => {
+export const receiveTracks = ({tracks, uploaders}) => {
         return {
             type: RECEIVE_TRACKS,
-            tracks: Object.values(tracks)
+            tracks: Object.values(tracks),
+            uploaders: Object.values(uploaders)
         };
 };
 
@@ -38,7 +39,8 @@ export const removeTrack = (track) => {
 
 export const fetchTracks = () => {
     return (dispatch) => {
-        return TrackAPIUtil.fetchTracks().then((tracks) => dispatch(receiveTracks(tracks)) );
+        return TrackAPIUtil.fetchTracks().then((payload) => {
+            dispatch(receiveTracks(payload)); });
     };
 };
 

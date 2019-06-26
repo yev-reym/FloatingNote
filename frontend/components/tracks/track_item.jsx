@@ -17,17 +17,18 @@ class TrackItem extends React.Component {
     }
 
     redirectShowPage(){
+        debugger
         this.props.history.push(`/${this.uploader.username}/${this.track.id}`);
     }
 
 
     render(){
-
+        debugger
         return (
 
         <div className='track-item' >
 
-            <img className='track-item-image' src={`${this.track.photUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
+            <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
 
             <NavLink className='track-item-title' to={`/${this.uploader.username}/${this.track.id}`}>
                 {this.track.title}

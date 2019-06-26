@@ -1,14 +1,30 @@
 import React from 'react';
+import {TrackIndex} from '../tracks/tracks_index';
 
 
 
-const Discover = (props) => {
+class Discover extends React.Component {
+    constructor(props){
+        super(props);
+        
+    }
 
-    return (
-    <main className='page-container'>
-        <h1 className="logout-heading"> In Progress!</h1>
-    </main>
-    )
+    componentDidMount(){
+        this.props.fetchTracks(); //.then(tracks => this.setState({tracks: tracks}));
+    }
+
+    render() {
+        const tracks = Object.keys(this.props.tracks).length === 0 ? null : Object.values(this.props.tracks);
+        const trackIndex = tracks ? <TrackIndex tracks={tracks} uploaders={this.props.uploaders} /> : null
+       
+        return (
+            <main className='page-container'>
+                <h1 className="logout-heading"> In Progress!</h1>
+                 {trackIndex}
+            </main>
+        )
+    }
+    
 
 };
 
