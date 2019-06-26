@@ -15,11 +15,9 @@ export const TrackIndex = ({tracks, uploaders}) => {
         );
        
     });
-
-    debugger
     
     return (
-        <ul>
+        <ul className="slider-container">
             {mappedTracks}
         </ul>
         );

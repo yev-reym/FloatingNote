@@ -19,7 +19,7 @@ class Discover extends React.Component {
        
         return (
             <main className='page-container'>
-                <h1 className="logout-heading"> In Progress!</h1>
+                <h1 className="logout-heading"> Check out FloatingNote's latest tracks!</h1>
                  {trackIndex}
             </main>
         )

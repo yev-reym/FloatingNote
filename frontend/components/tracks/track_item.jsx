@@ -17,13 +17,13 @@ class TrackItem extends React.Component {
     }
 
     redirectShowPage(){
-        debugger
+        
         this.props.history.push(`/${this.uploader.username}/${this.track.id}`);
     }
 
 
     render(){
-        debugger
+        
         return (
 
         <div className='track-item' >
@@ -32,6 +32,9 @@ class TrackItem extends React.Component {
 
             <NavLink className='track-item-title' to={`/${this.uploader.username}/${this.track.id}`}>
                 {this.track.title}
+            </NavLink>
+            <NavLink className="track-item-uploader">
+                {this.uploader.username}
             </NavLink>
 
         </div>

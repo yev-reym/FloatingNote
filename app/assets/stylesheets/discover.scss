@@ -4,6 +4,7 @@
     width: 173px;;
     display: flex;
     flex-direction: column;
+    margin: 0 10px;
 
 }
 
@@ -12,9 +13,21 @@
     width: 100%;
 }
 
-.track-item-title {
+.track-item-title, .track-item-uploader {
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #333333;
+}
+
+.track-item-uploader{
+    color: #999999;
+}
+
+.slider-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    overflow: hidden;
 }
