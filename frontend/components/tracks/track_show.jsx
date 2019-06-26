@@ -29,7 +29,9 @@ class TrackShow extends React.Component {
         const diffDay = currentTime.getDate() - createdTime.getDate();
         const diffHours = currentTime.getHours() - createdTime.getHours();
         const diffMinutes = currentTime.getMinutes() - createdTime.getMinutes();
-    
+
+
+       //Fix this to account for uploading right before midnight, in which case 1 day ago is less appropriate than the hrs
         if (diffYear) {
             return diffYear === 1 ? <h1>{`${diffYear} year ago`}</h1> : <h1>{`${diffYear} years ago`}</h1>
         } else if (diffMonth) {
@@ -75,6 +77,8 @@ class TrackShow extends React.Component {
                     <div className='track-photo-container'>
                         {photo}
                     </div>
+
+
 
                 </main>
             </div>

@@ -3,7 +3,7 @@
     background: url('default-image.png');
     padding: 20px 30px 15px 30px;
     width: 1240px;
-    margin: 0 auto;
+    margin: 0 -30px;
     height: 380px;
     box-sizing: border-box;
     display: flex;
@@ -46,6 +46,8 @@
     background: #ffffff;
     margin: 0 auto;
     height: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
 }
 
 .track-info-container{
