@@ -1,15 +1,16 @@
+@import './base/colors.scss';
 
 .track-item{
     height: 173px;
     width: 173px;;
     display: flex;
     flex-direction: column;
-    margin: 0 10px;
+    margin-right: 10px;
 
 }
 
 .track-item-image{
-    height: 173px;
+    min-height: 173px;
     width: 100%;
 }
 
@@ -23,11 +24,127 @@
 
 .track-item-uploader{
     color: #999999;
+    text-align: left;
 }
 
 .slider-container{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 34px;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
 }
+
+.slider-container li{
+    padding: 0 0 78px;
+}
+
+.page-container h2{
+    font-size: 23px;
+    margin-bottom: 5px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    height: 32px;
+    font-weight: 100;
+}
+
+.page-container p{
+    margin-top: 5px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.left-container, .left-container-show{
+    padding: 30px 30px 0 0;
+    width: 850px;;
+    height: 100%;
+    border-right: 1px solid #cccccc;
+}
+
+.track-index-info{
+    margin-bottom: 24px;
+}
+
+.caption-container{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-button, .left-side-slider{
+    height: 32px;
+    width: 32px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background: $white;
+    position: absolute;
+    top: -215px;
+    right: -10px;
+    z-index: 1;
+}
+
+.slider-button span{
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 12px;
+    left: 2px;
+}
+
+// .shake {
+
+//     li {
+//         transform: translate3d(-10px, 0, 0);
+//     }
+
+// }
+
+.slider-hovered{
+    border-color: $orange;
+    
+    span{
+        color: $orange;
+    }
+}
+
+
+.button-positioning-div{
+    position: relative;
+}
+
+
+.left-side-slider{
+    -webkit-transform: rotate(180deg) translate3d(835px, 0, 0);     /* Chrome and other webkit browsers */
+    -moz-transform: rotate(180deg) translate3d(835px, 0, 0);        /* FF */
+    -o-transform: rotate(180deg) translate3d(835px, 0, 0);          /* Opera */
+    -ms-transform: rotate(180deg) translate3d(835px, 0, 0);         /* IE9 */
+    transform: rotate(180deg) translate3d(835px, 0, 0);  
+}
+
+.slider-container li{
+    transition: transform 1s ease-in-out;
+}
+
+.slide-left li{
+    transform: translate3d(-600px, 0, 0);
+}
+
+.slide-right li{
+    transform: translate3d(0px, 0, 0);
+}
+
+div {
+    user-select: none; 
+}
+
+
+// .fixer{
+//     width: 100%;
+//     height: 100%;
+//     position: fixed;
+// }

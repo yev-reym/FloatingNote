@@ -1,5 +1,5 @@
 import React from 'react';
-import CreatorsNav from './creators_nav';
+import CreatorsNav from '../creators_nav';
 // import {Link} from 'react-router-dom';
 
 class TrackForm extends React.Component {

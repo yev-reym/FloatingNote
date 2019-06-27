@@ -63,7 +63,7 @@ class TrackShow extends React.Component {
         return (
        
             <div className="page-container">
-                <main className="main-container">
+                 <main className="main-container">
 
                     <div className='track-info-container'>
                         <ul className="track-info">
@@ -77,10 +77,11 @@ class TrackShow extends React.Component {
                     <div className='track-photo-container'>
                         {photo}
                     </div>
-
-
-
+               
                 </main>
+                {/* <section className="left-container-show">
+
+                </section> */}
             </div>
         )
     }

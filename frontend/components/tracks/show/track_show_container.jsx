@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import {fetchTrack, deleteTrack} from '../../actions/track_actions';
-import {openModal} from '../../actions/modal_actions';
+import {fetchTrack, deleteTrack} from '../../../actions/track_actions';
+import {openModal} from '../../../actions/modal_actions';
 import {withRouter} from 'react-router-dom';
 import TrackShow from './track_show';
 

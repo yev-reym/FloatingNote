@@ -46,6 +46,7 @@
     background: #ffffff;
     margin: 0 auto;
     height: auto;
+    min-height: 100%;
     padding: 0 30px;
     box-sizing: border-box;
 }
@@ -61,4 +62,9 @@
     color: #ffffff;
     font-size: 16px;
     font-weight: 100;
+}
+
+.left-container-show{
+    position: absolute;
+    height: 100%;
 }

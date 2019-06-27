@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
-import {uploadTrack} from '../../actions/track_actions';
+import {uploadTrack} from '../../../actions/track_actions';
 import TrackForm from './track_form';
-import {openModal, closeModal} from '../../actions/modal_actions';
+import {openModal, closeModal} from '../../../actions/modal_actions';
 import {withRouter} from 'react-router-dom';
 
 const mapStateToProps = ({session}) => {

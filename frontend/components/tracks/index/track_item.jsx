@@ -30,12 +30,15 @@ class TrackItem extends React.Component {
 
             <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
 
-            <NavLink className='track-item-title' to={`/${this.uploader.username}/${this.track.id}`}>
-                {this.track.title}
-            </NavLink>
-            <NavLink className="track-item-uploader">
-                {this.uploader.username}
-            </NavLink>
+            <figcaption className='caption-container'> 
+                <NavLink className='track-item-title' to={`/${this.uploader.username}/${this.track.id}`}>
+                    {this.track.title}
+                </NavLink>
+                <NavLink to='/' className="track-item-uploader">
+                    {this.uploader.username}
+                </NavLink>
+            </figcaption>
+          
 
         </div>
 
