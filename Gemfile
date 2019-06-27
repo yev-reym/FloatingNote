@@ -28,6 +28,7 @@ gem 'validates_email_format_of'
 gem 'jquery-rails'
 gem 'aws-sdk-s3'
 gem 'aws-sdk'
+gem 'open-uri-s3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
