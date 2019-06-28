@@ -8,7 +8,7 @@ class Discover extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchTracks(); //.then(tracks => this.setState({tracks: tracks}));
+        this.props.fetchTracks();
     }
 
     render() {
@@ -31,12 +31,6 @@ class Discover extends React.Component {
                         <p>For those days when you need a lift</p>
                     </div>
                     {trackIndex}
-
-                    {/* <div className="track-index-info">
-                       <h2> Hits of the week</h2>
-                        <p>See what's hot on the charts right now!</p> 
-                    </div>
-                    {trackIndex} */}
 
                     <div className="track-index-info">
                         <h2> Smooth & funky jazz</h2>

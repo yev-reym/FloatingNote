@@ -5,7 +5,7 @@ class Api::TracksController < ApplicationController
             @tracks = User.find_by(email: params[:user][:email]).tracks
             render :index
         else 
-            @tracks = Track.includes(:uploader).all.limit(8) 
+            @tracks = Track.all.with_attached_track_file.with_attached_photo.includes(:uploader).limit(8) 
             render :index
         end
     end

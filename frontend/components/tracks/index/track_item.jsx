@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import PlayButton from '../../player/play_button';
 
 
 class TrackItem extends React.Component {
@@ -28,7 +29,10 @@ class TrackItem extends React.Component {
 
         <div className='track-item' >
 
-            <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
+            <div className="play-button-positioner">
+                <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
+               <PlayButton />
+            </div>
 
             <figcaption className='caption-container'> 
                 <NavLink className='track-item-title' to={`/${this.uploader.username}/${this.track.id}`}>
@@ -38,7 +42,7 @@ class TrackItem extends React.Component {
                     {this.uploader.username}
                 </NavLink>
             </figcaption>
-          
+         
 
         </div>
 

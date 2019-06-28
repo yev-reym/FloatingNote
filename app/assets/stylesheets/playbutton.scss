@@ -1,0 +1,21 @@
+@import './base/colors.scss';
+
+.play-button{
+    height: 60px;
+    width: 60px;
+    background: $orange;
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+}
+
+.play-button-positioner{
+    position: relative;
+}
+
+.play-logo{
+    position: absolute;
+    top: 16px;
+    right: 20px;
+}

@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.uploadTrack = uploadTrack;
     window.updateTrack = updateTrack;
     window.fetchTracksByUser = fetchTracksByUser;
+    window
     //
 
     ReactDOM.render(<Root store={store}/>, root);
