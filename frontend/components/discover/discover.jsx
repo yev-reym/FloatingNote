@@ -17,7 +17,7 @@ class Discover extends React.Component {
        
         return (
             <main className='page-container'>
-                {/* <div className="fixer"> */}
+ 
                     <section className="left-container">
 
                     <div className="track-index-info">
@@ -45,7 +45,6 @@ class Discover extends React.Component {
                     {trackIndex}
 
                     </section>
-                {/* </div> */}
          
                 
             </main>

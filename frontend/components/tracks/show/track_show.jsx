@@ -1,5 +1,5 @@
 import React from 'react';
-
+import MainPlayer from '../../player/player_main';
 
 class TrackShow extends React.Component {
 
@@ -79,6 +79,7 @@ class TrackShow extends React.Component {
                     </div>
                
                 </main>
+                <MainPlayer />
                 {/* <section className="left-container-show">
 
                 </section> */}

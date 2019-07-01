@@ -6,9 +6,10 @@ import {signup,infoCheck} from './utils/users_api_util';
 import { fetchTracks, uploadTrack, updateTrack, fetchTracksByUser } from './utils/tracks_api_util';
 import configureStore from './store/store';
 import Root from './components/Root';
+import {fetchCurrentTrack} from './actions/player_actions';
 
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',() => {
     const root = document.getElementById('root');
 
     let store;
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.uploadTrack = uploadTrack;
     window.updateTrack = updateTrack;
     window.fetchTracksByUser = fetchTracksByUser;
-    window
+    window.fetchCurrentTrack = fetchCurrentTrack;
     //
 
     ReactDOM.render(<Root store={store}/>, root);
