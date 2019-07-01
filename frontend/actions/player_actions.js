@@ -10,26 +10,26 @@ export const CLEAR_SCRUBBER_PERCENTAGE = 'CLEAR_SCRUBBER_PERCENTAGE';
 
 export const receivePlayerInfo = (trackInfo) => {
     return {
-        action: RECEIVE_PLAYER_INFO,
+        type: RECEIVE_PLAYER_INFO,
         trackInfo
     };
 };
 
 export const play = () => {
     return {
-        action: PLAY
+        type: PLAY
     };
 };
 
 export const pause = () => {
     return {
-        action: PAUSE
+        type: PAUSE
     };
 };
 
 export const updateTrackTime = (currentTime) => {
     return {
-        action: UPDATE_TRACK_TIME,
+        type: UPDATE_TRACK_TIME,
         currentTime
     };
 };

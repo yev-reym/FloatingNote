@@ -1,6 +1,6 @@
 @import './base/colors.scss';
 
-.play-button{
+.play-button, .play-button-show{
     height: 60px;
     width: 60px;
     background: $orange;
@@ -8,6 +8,11 @@
     position: absolute;
     top: 60px;
     right: 60px;
+}
+
+.play-button-show{ 
+    top: 5px;
+    left: -70px;
 }
 
 .play-button-positioner{

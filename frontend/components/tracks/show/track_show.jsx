@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPlayer from '../../player/player_main';
+import PlayButton from '../../player/play_button';
 
 class TrackShow extends React.Component {
 
@@ -66,7 +66,9 @@ class TrackShow extends React.Component {
                  <main className="main-container">
 
                     <div className='track-info-container'>
+                        
                         <ul className="track-info">
+                            <PlayButton track={this.props.track}/>
                             <li id='username'>{username}</li>
                             <li id='track-title'>{trackTitle}</li>
                         </ul>
@@ -79,7 +81,6 @@ class TrackShow extends React.Component {
                     </div>
                
                 </main>
-                <MainPlayer />
                 {/* <section className="left-container-show">
 
                 </section> */}

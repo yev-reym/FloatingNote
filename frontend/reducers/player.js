@@ -8,7 +8,7 @@ import {
 import {LOGOUT_CURRENT_USER} from  '../actions/auth_actions';
 import {merge} from 'lodash';
 
-const notPlaying = {playing: false, percentage: null}
+const notPlaying = {currentTrack: null, playing: false, percentage: null};
 
 const trackPlayerReducer = (oldState=notPlaying, action) => {
     Object.freeze(oldState);

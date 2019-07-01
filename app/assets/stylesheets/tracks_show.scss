@@ -26,6 +26,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
 
 #username, #track-title{
@@ -52,10 +53,10 @@
 }
 
 .track-info-container{
-    display:flex;
-    width: fit-content;
+    display: flex;
+    width: 830px;
     height: fit-content;
-
+    justify-content: center;
 }
 
 .track-info-container h1{
