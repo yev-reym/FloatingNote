@@ -13,10 +13,8 @@ class PlayButton extends React.Component {
     }
 
     togglePlay(){
-        debugger
         if (this.props.currentTrack === null || this.props.currentTrack.id !== this.trackId) {
             this.props.fetchCurrentTrack(this.trackId).then(() => { 
-                this.props.play();
                 this.setState({ playing: true });
             } );
         } else if (this.state.playing){

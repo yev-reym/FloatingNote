@@ -14,11 +14,15 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount(){
-
-        this.props.fetchTrack(this.props.match.params.trackId)
-
+        this.props.fetchTrack(this.props.match.params.trackId);
     }
 
+    componentDidUpdate(prevProps){
+        if (prevProps.location !== this.props.history.location) {
+            this.props.fetchTrack(this.props.match.params.trackId);
+        }
+    }
+    
     formatCreateTime(){
 
         const createdAt = this.props.track.created_at;
@@ -48,9 +52,7 @@ class TrackShow extends React.Component {
  
     }
 
-    componentDidUpdate(prevProps){
-
-    }
+    
 
     renderTrack(){
 
@@ -58,6 +60,7 @@ class TrackShow extends React.Component {
         const username = this.props.uploader.username ? this.props.uploader.username : null
         const trackTitle = this.props.track.title ? this.props.track.title : null
         const createTime = this.props.track.created_at ? this.formatCreateTime() : null
+        const playButton = this.props.track.id ? <PlayButton trackId={this.props.track.id}/> : null;
 
 
         return (
@@ -68,7 +71,7 @@ class TrackShow extends React.Component {
                     <div className='track-info-container'>
                         
                         <ul className="track-info">
-                            <PlayButton trackId={this.props.track.id}/>
+                            {playButton}
                             <li id='username'>{username}</li>
                             <li id='track-title'>{trackTitle}</li>
                         </ul>
