@@ -5,17 +5,21 @@ import {connect} from 'react-redux';
 class PlayButton extends React.Component {
     constructor(props){
         super(props);
-        const {track} = props;
+        const {trackId} = props;
         this.state = {playing: false};
-        this.track = track;
+        this.trackId = trackId;
         this.buttonStyle = props.location === '/discover' ? 'play-button' : 'play-button-show';
         this.togglePlay = this.togglePlay.bind(this);
     }
 
     togglePlay(){
-        // this.props.currentTrack ? null : this.props.fetchCurrentTrack(this.track.id);
-
-        if (this.state.playing){
+        debugger
+        if (this.props.currentTrack === null || this.props.currentTrack.id !== this.trackId) {
+            this.props.fetchCurrentTrack(this.trackId).then(() => { 
+                this.props.play();
+                this.setState({ playing: true });
+            } );
+        } else if (this.state.playing){
             this.props.pause();
             this.setState({playing: false});
         } else {
@@ -42,7 +46,7 @@ class PlayButton extends React.Component {
 const mapStateToProps = ({ui}, ownProps) => {
     debugger
     return {
-        track: ownProps.track,
+        trackId: ownProps.trackId,
         location: ownProps.location,
         currentTrack: ui.player.currentTrack
     }

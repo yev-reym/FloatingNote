@@ -68,7 +68,7 @@ class TrackShow extends React.Component {
                     <div className='track-info-container'>
                         
                         <ul className="track-info">
-                            <PlayButton track={this.props.track}/>
+                            <PlayButton trackId={this.props.track.id}/>
                             <li id='username'>{username}</li>
                             <li id='track-title'>{trackTitle}</li>
                         </ul>

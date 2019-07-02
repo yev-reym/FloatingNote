@@ -31,7 +31,7 @@ class TrackItem extends React.Component {
 
             <div className="play-button-positioner">
                 <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
-               <PlayButton location={this.props.history.location.pathname} track={this.track}/>
+               <PlayButton location={this.props.history.location.pathname} trackId={this.track.id}/>
             </div>
 
             <figcaption className='caption-container'> 
