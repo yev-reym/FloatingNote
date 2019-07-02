@@ -1,24 +1,15 @@
-# README
+# FloatingNote: A SoundCloud Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Hosted on Heroku: https://floatingnote.herokuapp.com/
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+* FloatingNote emulates the SoundCloud user experience all in a single-page application. Users can currently sign in, 
+upload tracks, and listen to them on the track player with continuous playback. 
 
-* System dependencies
+## Features to be implemented
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Waveform track player synced to the track player footer. This will use the wave-surfer js library.
+* Comments on a track show page and the ability to like posts.
+* User profile page 
+ 
