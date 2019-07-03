@@ -11,7 +11,7 @@ class MainPlayer extends React.Component {
         const {currentTrack} = props;
         this.state = {currentTrack};
         this.playMusic = this.playMusic.bind(this);
-        this.pauseMusic = this.pauseMusicbind(this);
+        this.pauseMusic = this.pauseMusic.bind(this);
     
 
         this.Scrubber = React.createRef();
@@ -35,7 +35,7 @@ class MainPlayer extends React.Component {
     }
 
     componentDidUpdate(){
-        if (this.props.playing)
+        this.props.playing ? this.Scrubber.current.play() : this.Scrubber.current.pause();
     }
 
     render(){
@@ -45,9 +45,7 @@ class MainPlayer extends React.Component {
                 <main className="player-positioner">
                     <LeftPlayer Scrubber={this.Scrubber} playing={this.props.playing} play={this.props.play} pause={this.props.pause}/>
 
-                    <audio ref={this.Scrubber} src={this.state.currentTrack.trackUrl} preload="auto" >
-
-                    </audio> 
+                    <audio ref={this.Scrubber} src={this.props.currentTrack.trackUrl} preload="auto" ></audio> 
                 </main>       
             </footer>
            

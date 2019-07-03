@@ -25,13 +25,15 @@ class TrackItem extends React.Component {
 
     render(){
         
+        const showButton = this.state.playButtonHover ? "button-show" : "button-hidden";
+
         return (
 
         <div className='track-item' >
 
-            <div className="play-button-positioner">
-                <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage} onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}/>
-               <PlayButton location={this.props.history.location.pathname} trackId={this.track.id}/>
+                <div className="play-button-positioner" onMouseEnter={this.togglePlayButton} onMouseLeave={this.togglePlayButton}>
+                <img className='track-item-image' src={`${this.track.photoUrl}`} onClick={this.redirectShowPage}/>
+               <PlayButton buttonStatus={showButton} location={this.props.history.location.pathname} trackId={this.track.id}/>
             </div>
 
             <figcaption className='caption-container'> 
