@@ -9,9 +9,10 @@ class MainPlayer extends React.Component {
     constructor(props){
         super(props);
         const {currentTrack} = props;
-        this.state = {currentTrack};
+        this.state = {currentTrack, trackDuration: null};
         this.playMusic = this.playMusic.bind(this);
         this.pauseMusic = this.pauseMusic.bind(this);
+        this.formatTime = this.formatTime.bind(this);
     
 
         this.Scrubber = React.createRef();
@@ -26,10 +27,27 @@ class MainPlayer extends React.Component {
         this.props.pause();
     }
 
+    formatTime(durationSec){
+        const duration = durationSec;
+        const hr = Math.floor(duration / 3600);
+        const min = Math.floor((duration % 3600) / 60);
+        const sec = Math.floor(duration) % 60;
+
+        const h = hr < 1 ? "" : hr + ':';
+        const s = sec < 10 ? '0' + sec : sec;
+        const m = min < 10 && hr > 1 ? '0' + min : min;
+      
+        return `${h}${m}:${s}`;
+    }
+
     componentDidMount(){
         this.Scrubber.current.onloadedmetadata = () => {
-            this.Scrubber.current.play();
-            this.playMusic();
+            this.Scrubber.current.play().then(() => {
+                this.props.receivePlayerInfo(this.formatTime(this.Scrubber.current.duration));
+                this.setState({trackDuration: this.props.duration});
+                this.playMusic();
+            });
+            
         };
        
     }
@@ -45,7 +63,14 @@ class MainPlayer extends React.Component {
                 <main className="player-positioner">
                     <LeftPlayer Scrubber={this.Scrubber} playing={this.props.playing} play={this.props.play} pause={this.props.pause}/>
 
-                    <audio ref={this.Scrubber} src={this.props.currentTrack.trackUrl} preload="auto" ></audio> 
+                <section className='scrubber-container'>
+                   <audio ref={this.Scrubber} src={this.props.currentTrack.trackUrl} preload="auto"  ></audio> 
+                    <input type="range"  defaultValue="0" min='0'max='100' step='1'  />
+                    <div className='track-duration'>
+                        {this.props.duration}
+                    </div> 
+                </section>
+  
                 </main>       
             </footer>
            
@@ -56,7 +81,8 @@ class MainPlayer extends React.Component {
 const mapStateToProps = ({ui}) => {
     return {
         currentTrack: ui.player.currentTrack,
-        playing: ui.player.playing
+        playing: ui.player.playing,
+        duration: ui.player.trackDuration || null
     }
 }
 

@@ -25,9 +25,10 @@ const trackPlayerReducer = (oldState=notPlaying, action) => {
             newState = {playing: true};
             return merge({}, oldState, newState);
         case RECEIVE_PLAYER_INFO:
-            const {trackDuration} = action.trackInfo;
-            newState = { trackDuration };
-            return merge({}, oldState, newState);
+            debugger
+            const trackInfo = action.trackInfo;
+            newState = {trackDuration: trackInfo};
+            return merge({}, oldState, newState );
         case RECEIVE_CURRENT_TRACK:
             const {currentTrack, uploader} = action;
             newState = {currentTrack, uploader};
