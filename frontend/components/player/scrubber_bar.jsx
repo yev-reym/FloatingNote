@@ -12,13 +12,11 @@ class ScrubberBar extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
+  
         if (prevProps.currentTime !== this.props.currentTime) {
-            let newPercentage = Math.floor((this.props.currentTime / this.props.duration) * 100);
-            debugger
+            let newPercentage = (this.props.currentTime / this.props.duration) * 100;
             this.scrubberBar.current.value = `${newPercentage}`;
         }
-        // this.props.percentage ? this.scrubberBar.current.value = `${this.props.percentage}` : this.scrubberBar.current.value = `${Math.floor(this.props.currentTime / this.props.duration)}` ;
     }
 
     updateScrubberPercentage(){
@@ -35,7 +33,7 @@ class ScrubberBar extends React.Component {
 
         return (
             <div className="scrubber-outer">
-                <input ref={this.scrubberBar} type="range" defaultValue="0" min='0' max='100' step='1' onChange={this.updateScrubberPercentage} 
+                <input ref={this.scrubberBar} type="range" defaultValue="0" min='0' max='100' step='.1' onChange={this.updateScrubberPercentage} 
                                                                                                         onMouseOver={this.toggleScrubberThumb} 
                                                                                                         onMouseLeave={this.toggleScrubberThumb} />
             </div>     

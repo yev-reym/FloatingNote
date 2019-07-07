@@ -18,7 +18,7 @@
     margin: 0 30px 0 15px;
     padding: 0 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -81,7 +81,9 @@
     position: relative;
 }
  
-//test
+.track-current-time{
+    color: $orange;
+}
 
 input[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -91,6 +93,10 @@ input[type=range] {
     position: absolute;
     top: -2px;
     cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track{
+
 }
 
 input[type=range]::-ms-track {
