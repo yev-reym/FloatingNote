@@ -5,15 +5,17 @@ import {TrackIndex} from '../tracks/index/tracks_index';
 class Discover extends React.Component {
     constructor(props){
         super(props);
+        this.state = {tracks:[], uploaders:[]};
     }
 
     componentDidMount(){
-        this.props.fetchTracks();
+        this.props.fetchTracks().then(() => {
+            this.setState({tracks: Object.values(this.props.tracks), uploaders: this.props.uploaders});
+        });
     }
 
     render() {
-        const tracks = Object.keys(this.props.tracks).length === 0 ? null : Object.values(this.props.tracks);
-        const trackIndex = tracks ? <TrackIndex tracks={tracks} uploaders={this.props.uploaders} history={this.props.history} /> : null
+        const trackIndex = this.state.tracks.length === 0 ? null : <TrackIndex tracks={this.state.tracks}  uploaders={this.state.uploaders}  history={this.props.history} />;
        
         return (
             <main className='page-container'>
@@ -52,7 +54,6 @@ class Discover extends React.Component {
     }
     
 
-};
-
+}
 
 export default Discover;

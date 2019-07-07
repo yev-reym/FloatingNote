@@ -25,7 +25,6 @@ const trackPlayerReducer = (oldState=notPlaying, action) => {
             newState = {playing: true};
             return merge({}, oldState, newState);
         case RECEIVE_PLAYER_INFO:
-            debugger
             const trackInfo = action.trackInfo;
             newState = {trackDuration: trackInfo};
             return merge({}, oldState, newState );
@@ -34,8 +33,9 @@ const trackPlayerReducer = (oldState=notPlaying, action) => {
             newState = {currentTrack, uploader};
             return merge({}, oldState, newState);
         case RECEIVE_SCRUBBER_PERCENTAGE:
-            const {percentage} = action;
-            return merge({}, oldState, percentage );
+            const percentage = action.percentage;
+            newState = {percentage};
+            return merge({}, oldState, newState );
         case CLEAR_SCRUBBER_PERCENTAGE:
             return merge({}, oldState, {percentage: null});
         case LOGOUT_CURRENT_USER:
